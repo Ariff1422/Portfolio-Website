@@ -40,7 +40,6 @@ const AllProjects = () => {
       image: portfolio,
       technologies: ["React", "Tailwind CSS", "Vite", "Javascript"],
       sourceCodeUrl: "https://github.com/Ariff1422/Portfolio-Website",
-      liveUrl: "https://ariffm.netlify.app/",
     },
   ];
 
