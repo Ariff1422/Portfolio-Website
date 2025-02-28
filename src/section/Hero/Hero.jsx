@@ -4,7 +4,7 @@ import githubLight from "../../assets/github-light.svg";
 import githubDark from "../../assets/github-dark.svg";
 import linkedinLight from "../../assets/linkedin-light.svg";
 import linkedinDark from "../../assets/linkedin-dark.svg";
-import CV from "../../assets/Ariff_Muhammed_Resume (2).pdf";
+import CV from "../../assets/AriffM_Resume.pdf";
 import { useTheme } from "../../common/ThemeContext";
 
 function Hero() {
