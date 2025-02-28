@@ -31,14 +31,14 @@ function Hero() {
         <h2>Software Developer</h2>
         <span>
           <a
-            href="https://github.com/"
+            href="https://github.com/Ariff1422"
             target="_blank"
             rel="noopener noreferrer"
           >
             <img src={githubIcon} alt="Github icon" />
           </a>
           <a
-            href="https://linkedin.com/"
+            href="https://www.linkedin.com/in/ariff-muhammed-ahsan/"
             target="_blank"
             rel="noopener noreferrer"
           >
