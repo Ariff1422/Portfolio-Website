@@ -3,8 +3,14 @@ import { Link } from "react-router-dom";
 import styles from "./ProjectsStyles.module.css";
 import pawgress from "../../assets/pawgress.png";
 import cg1111a from "../../assets/cg1111a.jpeg";
+import portfoliodark from "../../assets/portfoliodark.png";
+import portfoliolight from "../../assets/portfoliolight.png";
+import { useTheme } from "../../common/ThemeContext";
 
 const AllProjects = () => {
+  const { theme } = useTheme();
+
+  const portfolio = theme === "light" ? portfoliodark : portfoliolight;
   // Sample project data - replace with your actual projects
   const projects = [
     {
@@ -31,7 +37,7 @@ const AllProjects = () => {
       title: "Portfolio Website",
       description:
         "A personal portfolio website built from scratch showcasing my projects, skills, education and experience.",
-      image: "../../assets/pawgress.png",
+      image: portfolio,
       technologies: ["React", "Tailwind CSS", "Vite", "Javascript"],
       sourceCodeUrl: "https://github.com/pranavjana/HacknRoll-2025",
       liveUrl: "https://d9c57d06.pawgress.pages.dev/",
