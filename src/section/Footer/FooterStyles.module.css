@@ -1,0 +1,39 @@
+.container {
+  background-color: var(--bg-color-dark);
+  color: var(--text-color-dark);
+  margin-top: -30px;
+  font-size: 14px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 10px;
+}
+
+.icons {
+  display: flex;
+  gap: 15px;
+}
+
+.icons a {
+  color: var(--icon-color-dark);
+  font-size: 24px;
+  transition: color 0.3s;
+}
+
+.icons a:hover {
+  color: var(--icon-hover-color-dark);
+}
+
+:root {
+  --bg-color-dark: #031024;
+  --text-color-dark: #3f4547;
+  --icon-color-dark: #383d40;
+  --icon-hover-color-dark: #f9fbf2;
+}
+
+[data-theme="light"] {
+  --bg-color-dark: #f1f1f4;
+  --text-color-dark: #1f2325;
+  --icon-color-dark: #1f2325;
+  --icon-hover-color-dark: #1db954;
+}
