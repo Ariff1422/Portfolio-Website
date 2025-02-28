@@ -39,8 +39,8 @@ const AllProjects = () => {
         "A personal portfolio website built from scratch showcasing my projects, skills, education and experience.",
       image: portfolio,
       technologies: ["React", "Tailwind CSS", "Vite", "Javascript"],
-      sourceCodeUrl: "https://github.com/pranavjana/HacknRoll-2025",
-      liveUrl: "https://d9c57d06.pawgress.pages.dev/",
+      sourceCodeUrl: "https://github.com/Ariff1422/Portfolio-Website",
+      liveUrl: "https://ariffm.netlify.app/",
     },
   ];
 
