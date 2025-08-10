@@ -108,9 +108,11 @@ const Resume = () => {
                 BEng in Computer Engineering (Hons)
               </h3>
               <ul className={styles.achievements}>
-                <li>GPA: 4.64/5.0</li>
+                <li>GPA: 4.54/5.0</li>
                 <li>Pursuing a Minor in Data Analytics</li>
                 <li>NUS Hack & Roll 2025: Top 15</li>
+                <li>DSTA BrainHack 2025: Semifinalist</li>
+                <li>WorldQuant Challenge: Gold</li>
                 <li>
                   Relevant Courses Completed: Engineering Principles and
                   Practices, Data Structures and Algorithms

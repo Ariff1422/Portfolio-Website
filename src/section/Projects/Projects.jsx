@@ -3,18 +3,26 @@ import { Link } from "react-router-dom";
 import { useTheme } from "../../common/ThemeContext";
 import styles from "./ProjectsStyles.module.css";
 import pawgress from "../../assets/pawgress.png";
-import cg1111a from "../../assets/cg1111a.jpeg";
+import psonia from "../../assets/Psonia.png";
 
 const FeaturedProjects = ({ limit = 2 }) => {
   const projects = [
     {
       id: 1,
-      title: "A-maze-ing Race - mBot Maze Solving Robot",
+      title: "Psonia - For smarter shoppers",
       description:
-        "My group developed an autonomous mBot for maze navigation through integrating sensors, Arduino programming, circuit design, and k-NN to enhance colour sensor performance.",
-      image: cg1111a,
-      technologies: ["Arduino", "C++", "Machine Learning", "Sensors"],
-      sourceCodeUrl: "https://github.com/xelisce/cg1111a",
+        "Psonia is an intelligent web application designed to redefine the online shopping experience by optimizing financial benefits, ensuring cost transparency, providing dynamic organization, and streamlining notifications for users. The project was developed to address common frustrations with e-commerce, such as the difficulty of comparing credit card benefits and the lack of integrated tools for budget management.",
+      image: psonia,
+      technologies: [
+        "Node.js",
+        "Tailwind CSS",
+        "Selenium",
+        "Python",
+        "Jest",
+        "Linear Regression",
+      ],
+      sourceCodeUrl: "https://github.com/Ariff1422/Psonia",
+      liveUrl: "https://psonia-five.vercel.app",
     },
     {
       id: 2,
