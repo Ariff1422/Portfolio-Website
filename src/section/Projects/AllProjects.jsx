@@ -5,6 +5,9 @@ import pawgress from "../../assets/pawgress.png";
 import cg1111a from "../../assets/cg1111a.jpeg";
 import portfoliodark from "../../assets/portfoliodark.png";
 import portfoliolight from "../../assets/portfoliolight.png";
+import cg2111a from "../../assets/CG2111A_robot_2.jpg";
+import ebg from "../../assets/Ethical_Brand_Guide.png";
+import psonia from "../../assets/Psonia.png";
 import { useTheme } from "../../common/ThemeContext";
 
 const AllProjects = () => {
@@ -40,6 +43,47 @@ const AllProjects = () => {
       image: portfolio,
       technologies: ["React", "Tailwind CSS", "Vite", "Javascript"],
       sourceCodeUrl: "https://github.com/Ariff1422/Portfolio-Website",
+    },
+    {
+      id: 4,
+      title: "Search-and-Rescue Robot ALEX",
+      description:
+        "As part of CG2111A Engineering Principles and Practice II, my team and I designed Alex, an autonomous robot for search-and-rescue operations in hazardous environments, such as astronaut recovery missions. Alex integrates LiDAR-based SLAM mapping, secure TLS communication, object manipulation via a servo-powered claw, and real-time telemetry to navigate complex terrains and deliver critical supplies.",
+      image: cg2111a,
+      technologies: [
+        "Robot Operating System(ROS)",
+        "LiDAR",
+        "SLAM",
+        "C++",
+        "Python",
+        "TLS",
+      ],
+    },
+    {
+      id: 5,
+      title: "Ethical Brand Guide (LifeHack 2025)",
+      description:
+        "A portfolio-worthy project, the Ethical Brand Guide is a Next.js and Supabase web dashboard that aggregates ESG (Environmental, Social, and Governance) data. It's complemented by a browser extension that displays ethical scores directly on e-commerce sites, empowering consumers with informed purchasing decisions. This project showcases my skills in full-stack development, data aggregation with Python and Selenium, and API integration.",
+      image: ebg,
+      technologies: ["Next.js", "Supabase", "Python", "Selenium"],
+      sourceCodeUrl: "https://github.com/ABJV-LifeHack-2025/LifeHack-2025/",
+    },
+    {
+      id: 6,
+      title: "Psonia - For smarter shoppers",
+      description:
+        "Psonia is an intelligent web application designed to redefine the online shopping experience by optimizing financial benefits, ensuring cost transparency, providing dynamic organization, and streamlining notifications for users. The project was developed to address common frustrations with e-commerce, such as the difficulty of comparing credit card benefits and the lack of integrated tools for budget management.",
+      image: psonia,
+      technologies: [
+        "Node.js",
+        "Tailwind CSS",
+        "Selenium",
+        "Python",
+        "Jest",
+        "Linear Regression",
+      ],
+      sourceCodeUrl: "https://github.com/Ariff1422/Psonia",
+      liveUrl: "https://psonia-five.vercel.app",
     },
   ];
 
@@ -115,25 +159,27 @@ const AllProjects = () => {
 
               {/* Action Buttons */}
               <div className={styles.projectButtons}>
-                <a
-                  href={project.sourceCodeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className={styles.codeButton}
-                >
-                  <span className={styles.githubIcon}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="16"
-                      height="16"
-                      fill="currentColor"
-                      viewBox="0 0 16 16"
-                    >
-                      <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
-                    </svg>
-                  </span>
-                  View Code
-                </a>
+                {project.sourceCodeUrl && (
+                  <a
+                    href={project.sourceCodeUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={styles.codeButton}
+                  >
+                    <span className={styles.githubIcon}>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        viewBox="0 0 16 16"
+                      >
+                        <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" />
+                      </svg>
+                    </span>
+                    View Code
+                  </a>
+                )}
                 {project.liveUrl && (
                   <a
                     href={project.liveUrl}
