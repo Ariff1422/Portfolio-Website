@@ -1,39 +1,90 @@
 .container {
-  background-color: var(--bg-color-dark);
-  color: var(--text-color-dark);
-  margin-top: -30px;
-  font-size: 14px;
+  background: rgba(var(--footer-bg-rgb), 0.8);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  color: var(--footer-text);
+  margin-top: 0;
+  font-family: "Inter", sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 10px;
+  padding: 2rem 3rem;
+  border-top: 1px solid var(--footer-border);
+  position: relative;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(var(--footer-accent-rgb), 0.3),
+    transparent
+  );
+}
+
+.container p {
+  margin: 0;
+  line-height: 1.6;
+  letter-spacing: 0.02em;
 }
 
 .icons {
   display: flex;
-  gap: 15px;
+  gap: 1rem;
 }
 
 .icons a {
-  color: var(--icon-color-dark);
-  font-size: 24px;
-  transition: color 0.3s;
+  color: var(--footer-icon);
+  font-size: 1.25rem;
+  padding: 0.625rem;
+  background: rgba(var(--footer-bg-rgb), 0.5);
+  border: 1px solid var(--footer-border);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
 }
 
 .icons a:hover {
-  color: var(--icon-hover-color-dark);
+  color: white;
+  background: var(--footer-accent-color);
+  border-color: var(--footer-accent-color);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(var(--footer-accent-rgb), 0.3);
 }
 
 :root {
-  --bg-color-dark: #031024;
-  --text-color-dark: #3f4547;
-  --icon-color-dark: #383d40;
-  --icon-hover-color-dark: #f9fbf2;
+  --footer-bg-rgb: 15, 23, 42;
+  --footer-text: #94a3b8;
+  --footer-icon: #64748b;
+  --footer-border: rgba(51, 65, 85, 0.5);
+  --footer-accent-rgb: 163, 0, 0;
+  --footer-accent-color: #a30000;
 }
 
 [data-theme="light"] {
-  --bg-color-dark: #f1f1f4;
-  --text-color-dark: #1f2325;
-  --icon-color-dark: #1f2325;
-  --icon-hover-color-dark: #1db954;
+  --footer-bg-rgb: 250, 250, 248;
+  --footer-text: #475569;
+  --footer-icon: #64748b;
+  --footer-border: rgba(226, 232, 240, 0.8);
+  --footer-accent-rgb: 30, 58, 138;
+  --footer-accent-color: #1e3a8a;
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    gap: 1.5rem;
+    text-align: center;
+    padding: 1.5rem 2rem;
+  }
 }

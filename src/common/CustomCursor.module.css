@@ -1,0 +1,94 @@
+.cursor,
+.cursorFollower {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: transform 0.15s ease-out, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.cursor.visible,
+.cursorFollower.visible {
+  opacity: 1;
+}
+
+/* Arrow pointer shape with outline for visibility */
+.cursor {
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 24px solid #a30000;
+  background: transparent;
+  border-radius: 0;
+  transform: translate(-25%, -10%) rotate(-45deg);
+  transition: transform 0.1s ease, border-color 0.3s ease;
+  filter: drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+}
+
+.cursorFollower {
+  display: none;
+}
+
+.cursor.pointer {
+  border-bottom-color: #ffffff;
+  transform: translate(-25%, -10%) rotate(-45deg) scale(1.1);
+  filter: drop-shadow(0 0 2px #a30000) drop-shadow(0 0 4px rgba(163, 0, 0, 0.6));
+}
+
+.cursorFollower.pointer {
+  display: none;
+}
+
+/* Hide default cursor */
+body {
+  cursor: none;
+}
+
+a,
+button,
+.hover,
+[role="button"],
+input,
+textarea,
+select {
+  cursor: none !important;
+}
+
+/* Re-enable default cursor on mobile */
+@media (max-width: 768px) {
+  .cursor,
+  .cursorFollower {
+    display: none;
+  }
+
+  body,
+  a,
+  button,
+  .hover,
+  [role="button"],
+  input,
+  textarea,
+  select {
+    cursor: auto !important;
+  }
+}
+
+/* Light theme adjustments */
+[data-theme="light"] .cursor {
+  border-bottom-color: #1e3a8a;
+  filter: drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
+}
+
+[data-theme="light"] .cursorFollower {
+  display: none;
+}
+
+[data-theme="light"] .cursor.pointer {
+  border-bottom-color: #ffffff;
+  filter: drop-shadow(0 0 2px #1e3a8a) drop-shadow(0 0 4px rgba(30, 58, 138, 0.6));
+}
+
+[data-theme="light"] .cursorFollower.pointer {
+  display: none;
+}

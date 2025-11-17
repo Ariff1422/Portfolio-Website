@@ -1,13 +1,13 @@
 :root {
-  --background-color: #f1f1f4;
+  --background-color: #fafaf8;
   --btn-color: #1f2325;
-  --btn-hover-color: #0a2b59;
-  --btn-text-color: #f1f1f4;
-  --btn-text-color-hover: #f1f1f4;
+  --btn-hover-color: #1e3a8a;
+  --btn-text-color: #fafaf8;
+  --btn-text-color-hover: #fafaf8;
   --project-card-color: #ffffff00;
-  --text-color: #1f2325;
-  --form-text-color: #333a3f;
-  --footer-text-color: #4d5256;
+  --text-color: #1e293b;
+  --form-text-color: #334155;
+  --footer-text-color: #64748b;
 }
 [data-theme="dark"] {
   --background-color: #031024;
@@ -25,13 +25,17 @@ body {
   background-color: var(--background-color);
   display: flex;
   justify-content: center;
-  margin: 0 auto 60px;
+  margin: 0 auto;
+  overflow-x: hidden;
 }
 
 #root {
   display: flex;
   flex-direction: column;
   gap: 120px;
+  width: 100%;
+  max-width: 100vw;
+  min-height: 100vh;
 }
 
 h1,

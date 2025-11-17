@@ -1,0 +1,120 @@
+/* Progress Bar */
+.progressContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(var(--progress-bg-rgb), 0.3);
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--btn-hover-color),
+    var(--progress-accent)
+  );
+  box-shadow: 0 0 10px var(--btn-hover-color),
+    0 0 20px rgba(var(--progress-accent-rgb), 0.5);
+  transition: width 0.1s ease-out;
+  border-radius: 0 2px 2px 0;
+}
+
+/* Back to Top Button */
+.scrollToTop {
+  position: fixed;
+  bottom: 6rem;
+  right: 2rem;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: rgba(var(--glass-bg-rgb), 0.8);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: var(--text-color);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  z-index: 9998;
+  overflow: hidden;
+}
+
+.scrollToTop.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.scrollToTop:hover {
+  background: var(--btn-hover-color);
+  color: white;
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(var(--progress-accent-rgb), 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.scrollToTop:active {
+  transform: translateY(-2px) scale(1.05);
+}
+
+.scrollToTop svg {
+  position: relative;
+  z-index: 2;
+  transition: transform 0.3s ease;
+}
+
+.scrollToTop:hover svg {
+  transform: translateY(-2px);
+}
+
+/* Circular progress indicator */
+.circleProgress {
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  opacity: 0.3;
+  z-index: 1;
+}
+
+/* Theme Variables */
+:root {
+  --progress-bg-rgb: 255, 255, 255;
+  --progress-accent: #cc0000;
+  --progress-accent-rgb: 204, 0, 0;
+  --glass-bg-rgb: 255, 255, 255;
+}
+
+[data-theme="dark"] {
+  --progress-bg-rgb: 31, 35, 37;
+  --progress-accent: #ff3333;
+  --progress-accent-rgb: 255, 51, 51;
+  --glass-bg-rgb: 31, 35, 37;
+}
+
+[data-theme="light"] {
+  --progress-bg-rgb: 250, 250, 248;
+  --progress-accent: #1e3a8a;
+  --progress-accent-rgb: 30, 58, 138;
+  --glass-bg-rgb: 255, 255, 255;
+}
+
+@media (max-width: 768px) {
+  .scrollToTop {
+    bottom: 5rem;
+    right: 1.5rem;
+    width: 48px;
+    height: 48px;
+  }
+}

@@ -1,0 +1,34 @@
+.progressContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: transparent;
+  z-index: 10000;
+  pointer-events: none;
+}
+
+.progressBar {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--btn-hover-color) 0%,
+    var(--btn-color) 100%
+  );
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 10px var(--btn-hover-color);
+  position: relative;
+}
+
+.progressBar::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 20px;
+  height: 100%;
+  background: var(--btn-text-color-hover);
+  box-shadow: 0 0 15px var(--btn-hover-color);
+  filter: blur(2px);
+}

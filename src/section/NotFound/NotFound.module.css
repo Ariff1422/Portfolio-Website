@@ -1,0 +1,228 @@
+@keyframes float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(15px, -20px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.bubble1,
+.bubble2,
+.bubble3 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(var(--notfound-bubble-rgb), 0.2),
+    rgba(var(--notfound-bubble-rgb), 0.05)
+  );
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bubble1 {
+  width: 400px;
+  height: 400px;
+  top: -100px;
+  right: -100px;
+  animation: float 15s ease-in-out infinite;
+}
+
+.bubble2 {
+  width: 300px;
+  height: 300px;
+  bottom: -50px;
+  left: -50px;
+  animation: float 18s ease-in-out infinite 3s;
+}
+
+.bubble3 {
+  width: 200px;
+  height: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: float 12s ease-in-out infinite 6s;
+}
+
+.content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 600px;
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.errorCode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.four,
+.zero {
+  font-size: clamp(6rem, 15vw, 12rem);
+  font-weight: 900;
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  line-height: 1;
+  background: linear-gradient(
+    135deg,
+    var(--btn-hover-color),
+    var(--notfound-accent)
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.zero {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.title {
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0 0 1rem;
+  font-family: "Space Grotesk", "Inter", sans-serif;
+}
+
+.description {
+  font-size: 1.125rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin: 0 0 2.5rem;
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.homeButton,
+.projectsButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem 2rem;
+  border-radius: 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+.homeButton {
+  background: var(--btn-hover-color);
+  color: white;
+  border: 1px solid var(--btn-hover-color);
+  box-shadow: 0 4px 16px rgba(var(--notfound-accent-rgb), 0.3);
+}
+
+.homeButton:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(var(--notfound-accent-rgb), 0.4);
+}
+
+.projectsButton {
+  background: rgba(var(--notfound-glass-rgb), 0.5);
+  color: var(--text-color);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+.projectsButton:hover {
+  transform: translateY(-3px);
+  background: rgba(var(--notfound-glass-rgb), 0.7);
+  border-color: var(--btn-hover-color);
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.15),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+/* Theme Variables */
+:root {
+  --notfound-bubble-rgb: 163, 0, 0;
+  --notfound-glass-rgb: 255, 255, 255;
+  --notfound-accent: #cc0000;
+  --notfound-accent-rgb: 163, 0, 0;
+}
+
+[data-theme="dark"] {
+  --notfound-bubble-rgb: 163, 0, 0;
+  --notfound-glass-rgb: 31, 35, 37;
+  --notfound-accent: #ff3333;
+  --notfound-accent-rgb: 163, 0, 0;
+}
+
+[data-theme="light"] {
+  --notfound-bubble-rgb: 30, 58, 138;
+  --notfound-glass-rgb: 255, 255, 255;
+  --notfound-accent: #3b82f6;
+  --notfound-accent-rgb: 30, 58, 138;
+}
+
+@media (max-width: 480px) {
+  .actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .homeButton,
+  .projectsButton {
+    width: 100%;
+    justify-content: center;
+    max-width: 250px;
+  }
+
+  .description {
+    font-size: 1rem;
+  }
+}
