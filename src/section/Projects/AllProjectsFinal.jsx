@@ -5,8 +5,8 @@ import pawgress from "../../assets/pawgress.png";
 import cg1111a from "../../assets/cg1111a.jpeg";
 import portfoliodark from "../../assets/portfoliodark.png";
 import portfoliolight from "../../assets/portfoliolight.png";
-import portfoliolightnew from "../../assets/portfolio_updated_light.png";
-import portfoliodarknew from "../../assets/portfolio_updated_dark.png"; // Will be updated when dark version is provided
+import portfoliolightnew from "../../assets/Portfolio_updated_light.png";
+import portfoliodarknew from "../../assets/Portfolio_updated_dark.png";
 import cg2111a from "../../assets/CG2111A_robot_2.jpg";
 import ebg from "../../assets/Ethical_Brand_Guide.png";
 import psonia from "../../assets/Psonia.png";
