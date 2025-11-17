@@ -94,24 +94,24 @@ h6 {
 }
 
 h1 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(2.25rem, 4.5vw, 3.6rem);
   font-weight: 800;
   letter-spacing: -0.02em;
 }
 
 h2 {
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(1.8rem, 3.6vw, 2.7rem);
   font-weight: 700;
   letter-spacing: -0.01em;
 }
 
 h3 {
-  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-size: clamp(1.35rem, 2.7vw, 1.8rem);
   font-weight: 600;
 }
 
 p {
-  font-size: clamp(1rem, 2vw, 1.125rem);
+  font-size: clamp(0.9rem, 1.8vw, 1.01rem);
   color: var(--text-secondary);
   line-height: 1.7;
 }

@@ -407,16 +407,15 @@
 
   .activeIndicator {
     width: calc(100% - 1rem);
-    height: auto;
+    height: calc(50% - 0.5rem);
+    top: 0.5rem;
+    left: 0.5rem;
+    transition: transform 0.3s ease;
     transform: translateY(0) !important;
   }
 
-  .activeIndicator[style*="translateX(0)"] {
-    transform: translateY(0) !important;
-  }
-
-  .activeIndicator[style*="translateX(100%)"] {
-    transform: translateY(calc(100% + 0.5rem)) !important;
+  .activeIndicator.indicatorWork {
+    transform: translateY(calc(100% + 0.25rem)) !important;
   }
 
   .cardGlass {
