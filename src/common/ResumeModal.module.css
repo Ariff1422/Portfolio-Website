@@ -1,0 +1,206 @@
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 99999;
+  padding: 1rem;
+  animation: fadeIn 0.3s ease-out;
+  box-sizing: border-box;
+  isolation: isolate;
+}
+
+.modal {
+  width: 100%;
+  max-width: 1000px;
+  height: calc(100vh - 2rem);
+  max-height: 95vh;
+  background: rgba(var(--modal-bg-rgb), 0.95);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 16px 64px rgba(0, 0, 0, 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUp 0.4s ease-out;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(var(--modal-bg-rgb), 0.8);
+}
+
+.title {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.downloadButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: var(--btn-hover-color);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 0.938rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(var(--modal-accent-rgb), 0.3);
+}
+
+.downloadButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(var(--modal-accent-rgb), 0.4);
+}
+
+.closeButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: rgba(var(--modal-bg-rgb), 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.closeButton:hover {
+  background: rgba(var(--modal-accent-rgb), 0.2);
+  border-color: var(--btn-hover-color);
+  color: var(--btn-hover-color);
+}
+
+.content {
+  flex: 1;
+  position: relative;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+.loader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-color);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid rgba(var(--modal-accent-rgb), 0.2);
+  border-top-color: var(--btn-hover-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.pdfFrame {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Theme Variables */
+:root {
+  --modal-bg-rgb: 255, 255, 255;
+  --modal-accent-rgb: 163, 0, 0;
+}
+
+[data-theme="dark"] {
+  --modal-bg-rgb: 31, 35, 37;
+  --modal-accent-rgb: 163, 0, 0;
+}
+
+[data-theme="light"] {
+  --modal-bg-rgb: 255, 255, 255;
+  --modal-accent-rgb: 30, 58, 138;
+}
+
+@media (max-width: 768px) {
+  .overlay {
+    padding: 1rem;
+  }
+
+  .modal {
+    height: 90vh;
+    border-radius: 20px;
+  }
+
+  .header {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.125rem;
+  }
+
+  .downloadButton span {
+    display: none;
+  }
+
+  .downloadButton {
+    padding: 0.625rem;
+  }
+}

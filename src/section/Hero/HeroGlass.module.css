@@ -1,0 +1,715 @@
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes floatSlow {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(15px, -20px);
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideRole {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bubbleFloat {
+  0%,
+  100% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(20px, -30px);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(var(--bubble-color-rgb), 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(var(--bubble-color-rgb), 0.6);
+  }
+}
+
+/* Hero Section */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  padding: 6rem 2rem 2rem; /* Added top padding for navbar */
+  background: var(--background-color);
+}
+
+/* Bubble Container - iOS Style */
+.bubbleContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bubble1,
+.bubble2,
+.bubble3,
+.bubble4,
+.bubble5 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(var(--bubble-color-rgb), 0.3),
+    rgba(var(--bubble-color-rgb), 0.05)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  will-change: transform;
+}
+
+.bubble1 {
+  width: 600px;
+  height: 600px;
+  top: -10%;
+  right: -5%;
+  animation: bubbleFloat 25s ease-in-out infinite;
+}
+
+.bubble2 {
+  width: 400px;
+  height: 400px;
+  bottom: -5%;
+  left: -5%;
+  animation: bubbleFloat 30s ease-in-out infinite 5s;
+}
+
+.bubble3 {
+  width: 350px;
+  height: 350px;
+  top: 40%;
+  left: 50%;
+  animation: bubbleFloat 28s ease-in-out infinite 10s;
+}
+
+.bubble4 {
+  width: 250px;
+  height: 250px;
+  top: 20%;
+  left: 20%;
+  animation: bubbleFloat 32s ease-in-out infinite 3s;
+}
+
+.bubble5 {
+  width: 300px;
+  height: 300px;
+  bottom: 20%;
+  right: 30%;
+  animation: bubbleFloat 27s ease-in-out infinite 8s;
+}
+
+/* Interactive cursor bubble */
+.cursorBubble {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: transparent;
+  border: 2px solid rgba(var(--cursor-glow-rgb), 0.5);
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  transition: left 0.08s ease-out, top 0.08s ease-out, transform 0.2s ease;
+  z-index: 9;
+  will-change: left, top;
+  box-shadow:
+    0 0 20px rgba(var(--cursor-glow-rgb), 0.3),
+    inset 0 0 10px rgba(var(--cursor-glow-rgb), 0.1);
+}
+
+.cursorBubble::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: rgba(var(--cursor-glow-rgb), 0.8);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Container */
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+/* Glass Card for Content */
+.contentGlass {
+  background: rgba(var(--glass-bg-rgb), 0.4);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border-radius: 32px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 3rem 3.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  animation: fadeIn 1s ease-out;
+  position: relative;
+  overflow: visible;
+}
+
+.contentGlass::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
+
+/* Status Badge */
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background: rgba(var(--bubble-color-rgb), 0.15);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(var(--bubble-color-rgb), 0.3);
+  border-radius: 100px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-color);
+  width: fit-content;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.statusDot {
+  width: 8px;
+  height: 8px;
+  background: var(--btn-hover-color);
+  border-radius: 50%;
+  animation: pulse 2s ease-in-out infinite;
+  box-shadow: 0 0 12px var(--btn-hover-color);
+}
+
+/* Heading */
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 0;
+}
+
+.greeting {
+  font-family: "Fira Sans", sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
+  color: var(--text-color);
+  opacity: 0.7;
+}
+
+.name {
+  font-family: "Rubik", sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 800;
+  background: linear-gradient(
+    90deg,
+    var(--text-color) 0%,
+    var(--text-color) 40%,
+    var(--btn-hover-color) 50%,
+    var(--text-color) 60%,
+    var(--text-color) 100%
+  );
+  background-size: 300% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.1));
+  white-space: nowrap;
+  animation: shimmer 8s ease-in-out infinite;
+}
+
+/* Role Container */
+.roleContainer {
+  height: 60px;
+  overflow: hidden;
+  position: relative;
+}
+
+.roleWrapper {
+  position: relative;
+  height: 100%;
+}
+
+.role {
+  font-family: "Fira Sans", sans-serif;
+  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-weight: 600;
+  color: var(--btn-hover-color);
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.roleActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Description */
+.description {
+  font-family: "Fira Sans", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.125rem);
+  line-height: 1.7;
+  color: var(--text-color);
+  opacity: 0.8;
+  margin: 0;
+}
+
+/* Glass Buttons */
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.glassBtnPrimary,
+.glassBtnSecondary {
+  position: relative;
+  padding: 1rem 2rem;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  font-family: "Fira Sans", sans-serif;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.glassBtnPrimary {
+  background: var(--btn-hover-color);
+  color: white !important;
+  border: 1px solid var(--btn-hover-color);
+}
+
+.glassBtnSecondary {
+  background: rgba(var(--glass-bg-rgb), 0.3);
+  color: var(--text-color) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.glassBtnPrimary::before,
+.glassBtnSecondary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+}
+
+.btnContent {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.glassBtnPrimary:hover,
+.glassBtnSecondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.glassBtnPrimary:hover {
+  background: var(--btn-hover-darker);
+  border-color: var(--btn-hover-darker);
+  color: white !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2),
+    0 0 40px rgba(var(--bubble-color-rgb), 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+.glassBtnSecondary:hover {
+  background: rgba(var(--glass-bg-rgb), 0.4);
+  border-color: var(--btn-hover-color);
+  color: var(--text-color) !important;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(var(--bubble-color-rgb), 0.3),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+
+/* Social Links */
+.social {
+  display: flex;
+  gap: 1rem;
+}
+
+.socialLink {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(var(--glass-bg-rgb), 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 14px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.socialLink::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.4),
+    transparent
+  );
+}
+
+.socialLink:hover {
+  background: rgba(var(--bubble-color-rgb), 0.3);
+  border-color: var(--btn-hover-color);
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15),
+    0 0 30px rgba(var(--bubble-color-rgb), 0.4),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  animation: glow 2s ease-in-out infinite;
+}
+
+.socialLink img {
+  width: 24px;
+  height: 24px;
+  transition: all 0.3s ease;
+}
+
+/* Image Glass Card */
+.imageGlass {
+  position: relative;
+  background: rgba(var(--glass-bg-rgb), 0.3);
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 2rem;
+  aspect-ratio: 1;
+  max-width: 500px;
+  margin: 0 auto;
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.05) inset,
+    0 1px 0 rgba(255, 255, 255, 0.2) inset;
+  animation: fadeIn 1s ease-out 0.3s both, float 12s ease-in-out infinite;
+  will-change: transform;
+}
+
+.imageGlass::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  border-radius: 50%;
+}
+
+/* Floating bubbles around image */
+.imageBubble1,
+.imageBubble2,
+.imageBubble3 {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 30% 30%,
+    rgba(var(--bubble-color-rgb), 0.3),
+    rgba(var(--bubble-color-rgb), 0.05)
+  );
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.imageBubble1 {
+  width: 120px;
+  height: 120px;
+  top: -10%;
+  right: -10%;
+  animation: floatSlow 15s ease-in-out infinite;
+  will-change: transform;
+}
+
+.imageBubble2 {
+  width: 80px;
+  height: 80px;
+  bottom: 5%;
+  left: -5%;
+  animation: floatSlow 18s ease-in-out infinite 3s;
+  will-change: transform;
+}
+
+.imageBubble3 {
+  width: 100px;
+  height: 100px;
+  top: 50%;
+  left: -15%;
+  animation: floatSlow 20s ease-in-out infinite 6s;
+  will-change: transform;
+}
+
+.imageWrapper {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Scroll Indicator with Glass */
+.scrollIndicator {
+  position: absolute;
+  bottom: 2rem;
+  right: 3rem;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  animation: fadeIn 1s ease-out 1s both;
+}
+
+.scrollGlass {
+  width: 32px;
+  height: 52px;
+  background: rgba(var(--glass-bg-rgb), 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 2px solid rgba(255, 255, 255, 0.18);
+  border-radius: 16px;
+  position: relative;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.scrollWheel {
+  width: 4px;
+  height: 8px;
+  background: var(--text-color);
+  border-radius: 2px;
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: float 1.5s ease-in-out infinite;
+}
+
+.scrollText {
+  font-size: 0.813rem;
+  font-weight: 500;
+  color: var(--text-color);
+  opacity: 0.6;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .imageGlass {
+    order: -1;
+    max-width: 400px;
+  }
+
+  .contentGlass {
+    padding: 2.5rem;
+  }
+
+  .name {
+    white-space: normal;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 1rem 1rem;
+  }
+
+  .container {
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+
+  .contentGlass {
+    padding: 2rem;
+  }
+
+  .imageGlass {
+    max-width: 300px;
+  }
+
+  .name {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .glassBtnPrimary,
+  .glassBtnSecondary {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cursorBubble {
+    display: none;
+  }
+
+  .bubble1,
+  .bubble2,
+  .bubble3 {
+    opacity: 0.3;
+  }
+}
+
+/* Theme-specific variables */
+:root {
+  --bubble-color-rgb: 163, 0, 0;
+  --glass-bg-rgb: 255, 255, 255;
+  --btn-hover-darker: #8a0000;
+  --cursor-glow-rgb: 163, 0, 0;
+}
+
+[data-theme="dark"] {
+  --bubble-color-rgb: 163, 0, 0;
+  --glass-bg-rgb: 31, 35, 37;
+  --btn-hover-darker: #cc0000;
+  --cursor-glow-rgb: 255, 100, 100;
+}
+
+[data-theme="light"] {
+  --bubble-color-rgb: 30, 58, 138;
+  --glass-bg-rgb: 255, 255, 255;
+  --btn-hover-darker: #172554;
+  --cursor-glow-rgb: 96, 165, 250;
+}
