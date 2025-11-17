@@ -17,8 +17,8 @@ function HeroGlass() {
   const roles = [
     "Computer Engineer",
     "Full-Stack Developer",
-    "Problem Solver",
-    "Tech Innovator",
+    "FPGA Engineer",
+    "AI/ML Engineer",
   ];
 
   const githubIcon = theme === "light" ? githubLight : githubDark;
@@ -176,3 +176,4 @@ function HeroGlass() {
 }
 
 export default HeroGlass;
+
