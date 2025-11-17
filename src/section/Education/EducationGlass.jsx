@@ -72,7 +72,9 @@ const EducationGlass = () => {
             <span>Work Experience</span>
           </button>
           <div
-            className={styles.activeIndicator}
+            className={`${styles.activeIndicator} ${
+              activeTab === "work" ? styles.indicatorWork : ""
+            }`}
             style={{
               transform:
                 activeTab === "education"
