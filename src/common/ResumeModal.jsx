@@ -9,15 +9,18 @@ function ResumeModal({ isOpen, onClose, resumeUrl }) {
     if (isOpen) {
       document.body.style.overflow = "hidden";
       document.documentElement.style.overflow = "hidden";
+      document.body.classList.add("nativeCursor");
       setIsLoading(true);
     } else {
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
+      document.body.classList.remove("nativeCursor");
     }
 
     return () => {
       document.body.style.overflow = "";
       document.documentElement.style.overflow = "";
+      document.body.classList.remove("nativeCursor");
     };
   }, [isOpen]);
 

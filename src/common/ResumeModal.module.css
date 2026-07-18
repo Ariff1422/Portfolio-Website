@@ -48,11 +48,11 @@
   max-width: 1000px;
   height: calc(100vh - 2rem);
   max-height: 95vh;
-  background: rgba(var(--modal-bg-rgb), 0.95);
-  backdrop-filter: blur(30px) saturate(180%);
-  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  background: rgba(var(--modal-bg-rgb), 0.85);
+  backdrop-filter: blur(14px) saturate(180%);
+  -webkit-backdrop-filter: blur(14px) saturate(180%);
   border-radius: 24px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow:
     0 16px 64px rgba(0, 0, 0, 0.3),
     inset 0 0 0 1px rgba(255, 255, 255, 0.1);
@@ -67,8 +67,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 1.25rem 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(var(--modal-bg-rgb), 0.8);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.05);
 }
 
 .title {
@@ -90,9 +90,11 @@
   align-items: center;
   gap: 0.5rem;
   padding: 0.625rem 1.25rem;
-  background: var(--btn-hover-color);
+  background: rgba(var(--modal-accent-rgb), 0.25);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   color: white;
-  border: none;
+  border: 1px solid rgba(var(--modal-accent-rgb), 0.5);
   border-radius: 12px;
   font-size: 0.938rem;
   font-weight: 600;
@@ -113,8 +115,8 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: rgba(var(--modal-bg-rgb), 0.5);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   color: var(--text-color);
   cursor: pointer;
@@ -160,22 +162,14 @@
   width: 100%;
   height: 100%;
   border: none;
+  cursor: auto;
 }
 
 /* Theme Variables */
-:root {
-  --modal-bg-rgb: 255, 255, 255;
-  --modal-accent-rgb: 163, 0, 0;
-}
-
-[data-theme="dark"] {
+:root,
+[data-theme="glass"] {
   --modal-bg-rgb: 31, 35, 37;
-  --modal-accent-rgb: 163, 0, 0;
-}
-
-[data-theme="light"] {
-  --modal-bg-rgb: 255, 255, 255;
-  --modal-accent-rgb: 30, 58, 138;
+  --modal-accent-rgb: 34, 211, 238;
 }
 
 @media (max-width: 768px) {

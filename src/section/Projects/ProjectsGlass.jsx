@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useTheme } from "../../common/ThemeContext";
 import styles from "./ProjectsGlass.module.css";
 import pawgress from "../../assets/pawgress.png";
 import psonia from "../../assets/Psonia.png";
@@ -34,7 +33,7 @@ const ProjectCard = ({ project, index }) => {
         }}
       />
 
-      <div className={styles.cardContent}>
+      <div className={`${styles.glass} ${styles.cardContent}`}>
         {/* Project Number Badge */}
         <div className={styles.projectBadge}>
           <span className={styles.badgeNumber}>
@@ -215,7 +214,6 @@ const FeaturedProjects = ({ limit = 2 }) => {
     },
   ];
 
-  const { theme } = useTheme();
   const featuredProjects = projects.slice(0, limit);
 
   return (
@@ -224,13 +222,9 @@ const FeaturedProjects = ({ limit = 2 }) => {
       ref={sectionRef}
       className={`${styles.projectsSection} ${isVisible ? styles.visible : ""}`}
     >
-      {/* Floating bubbles */}
-      <div className={styles.sectionBubble1} />
-      <div className={styles.sectionBubble2} />
-
       {/* Section Header with Glass */}
       <div className={styles.sectionHeader}>
-        <div className={styles.headerGlass}>
+        <div className={`${styles.glass} ${styles.headerGlass}`}>
           <span className={styles.sectionLabel}>Portfolio</span>
           <h2 className={styles.sectionTitle}>Featured Projects</h2>
           <div className={styles.titleUnderline} />

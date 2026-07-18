@@ -3,15 +3,12 @@ import { Link } from "react-router-dom";
 import styles from "./AllProjectsFinal.module.css";
 import pawgress from "../../assets/pawgress.png";
 import cg1111a from "../../assets/cg1111a.jpeg";
-import portfoliodark from "../../assets/portfoliodark.png";
 import portfoliolight from "../../assets/portfoliolight.png";
 import portfoliolightnew from "../../assets/Portfolio_updated_light.png";
-import portfoliodarknew from "../../assets/Portfolio_updated_dark.png";
 import cg2111a from "../../assets/CG2111A_robot_2.jpg";
 import ebg from "../../assets/Ethical_Brand_Guide.png";
 import psonia from "../../assets/Psonia.png";
 import verity from "../../assets/verity.png";
-import { useTheme } from "../../common/ThemeContext";
 
 const ProjectCard = ({ project, index }) => {
   const cardRef = useRef(null);
@@ -232,16 +229,14 @@ const ProjectCard = ({ project, index }) => {
 };
 
 const AllProjects = () => {
-  const { theme } = useTheme();
   const [activeFilter, setActiveFilter] = useState("All");
   const [sortOrder, setSortOrder] = useState("newest");
   const [searchQuery, setSearchQuery] = useState("");
   const [isVisible, setIsVisible] = useState(false);
   const pageRef = useRef(null);
 
-  const portfolio = theme === "light" ? portfoliodark : portfoliolight;
-  const portfolioNew =
-    theme === "light" ? portfoliodarknew : portfoliolightnew;
+  const portfolio = portfoliolight;
+  const portfolioNew = portfoliolightnew;
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -387,16 +382,6 @@ const AllProjects = () => {
       ref={pageRef}
       className={`${styles.pageContainer} ${isVisible ? styles.visible : ""}`}
     >
-      {/* Floating Bubbles */}
-      <div className={styles.bubbleContainer}>
-        <div className={styles.bubble1}></div>
-        <div className={styles.bubble2}></div>
-        <div className={styles.bubble3}></div>
-        <div className={styles.bubble4}></div>
-        <div className={styles.bubble5}></div>
-        <div className={styles.bubble6}></div>
-      </div>
-
       {/* Hero Header */}
       <div className={styles.pageHero}>
         <Link to="/" className={styles.backButton}>
