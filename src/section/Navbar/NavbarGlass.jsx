@@ -1,13 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./NavbarGlass.module.css";
-import sun from "../../assets/sun.svg";
-import moon from "../../assets/moon.svg";
-import { useTheme } from "../../common/ThemeContext";
 
 function NavbarGlass() {
-  const { theme, toggleTheme } = useTheme();
-  const themeIcon = theme === "light" ? sun : moon;
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -31,17 +26,17 @@ function NavbarGlass() {
   return (
     <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.navContent}>
-        {/* Logo */}
+        {/* Logo bubble */}
         <div className={styles.logo}>
           <Link to="/" onClick={closeMenu}>
-            <div className={styles.logoGlass}>
+            <div className={`${styles.glass} ${styles.logoGlass}`}>
               <span className={styles.logoText}>AM</span>
             </div>
           </Link>
         </div>
 
-        {/* Nav Links */}
-        <div className={`${styles.navLinks} ${menuOpen ? styles.active : ""}`}>
+        {/* Nav Links bubble */}
+        <div className={`${styles.glass} ${styles.navLinks} ${menuOpen ? styles.active : ""}`}>
           <Link to="/" className={styles.navLink} onClick={closeMenu}>
             <div className={styles.linkGlass}>
               <svg width="18" height="18" viewBox="0 0 18 18" fill="none">
@@ -95,24 +90,13 @@ function NavbarGlass() {
 
         {/* Right Section */}
         <div className={styles.rightSection}>
-          {/* Theme Toggle */}
-          <button
-            className={styles.themeToggle}
-            onClick={toggleTheme}
-            aria-label="Toggle theme"
-          >
-            <div className={styles.toggleGlass}>
-              <img src={themeIcon} alt="Theme toggle" />
-            </div>
-          </button>
-
           {/* Hamburger */}
           <button
             className={styles.hamburger}
             onClick={toggleMenu}
             aria-label="Toggle menu"
           >
-            <div className={styles.hamburgerGlass}>
+            <div className={`${styles.glass} ${styles.hamburgerGlass}`}>
               <span
                 className={`${styles.bar} ${menuOpen ? styles.active : ""}`}
               />
@@ -129,9 +113,7 @@ function NavbarGlass() {
 
       {/* Overlay */}
       {menuOpen && (
-        <div className={styles.overlay} onClick={closeMenu}>
-          <div className={styles.overlayBubble} />
-        </div>
+        <div className={styles.overlay} onClick={closeMenu} />
       )}
     </nav>
   );

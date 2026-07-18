@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { useTheme } from "../../common/ThemeContext";
 import styles from "./EducationGlass.module.css";
 import careerContactLogo from "../../assets/careercontact_logo.jpeg";
 import NusLogo from "../../assets/nus_logo_full-vertical.jpg";
@@ -7,7 +6,6 @@ import njclogo from "../../assets/njc.jpeg";
 
 const EducationGlass = () => {
   const [activeTab, setActiveTab] = useState("education");
-  const { theme } = useTheme();
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -15,14 +13,10 @@ const EducationGlass = () => {
 
   return (
     <section id="education" className={styles.educationSection}>
-      {/* Floating bubbles */}
-      <div className={styles.sectionBubble1} />
-      <div className={styles.sectionBubble2} />
-
       {/* Section Container */}
       <div className={styles.container}>
         {/* Tabs with glass effect */}
-        <div className={styles.tabsGlass}>
+        <div className={`${styles.glass} ${styles.tabsGlass}`}>
           <button
             className={`${styles.tabButton} ${
               activeTab === "education" ? styles.active : ""
@@ -91,7 +85,7 @@ const EducationGlass = () => {
             <div className={styles.timeline}>
               {/* Work Experience Card */}
               <div className={styles.timelineItem}>
-                <div className={styles.cardGlass}>
+                <div className={`${styles.glass} ${styles.cardGlass}`}>
                   {/* Logo Badge */}
                   <div className={styles.logoBadge}>
                     <img src={careerContactLogo} alt="Career Contact" />
@@ -156,7 +150,7 @@ const EducationGlass = () => {
             <div className={styles.timeline}>
               {/* NUS Card */}
               <div className={styles.timelineItem}>
-                <div className={styles.cardGlass}>
+                <div className={`${styles.glass} ${styles.cardGlass}`}>
                   {/* Logo Badge */}
                   <div className={styles.logoBadge}>
                     <img src={NusLogo} alt="NUS" />
@@ -206,7 +200,7 @@ const EducationGlass = () => {
 
               {/* NJC Card */}
               <div className={styles.timelineItem}>
-                <div className={styles.cardGlass}>
+                <div className={`${styles.glass} ${styles.cardGlass}`}>
                   {/* Logo Badge */}
                   <div className={styles.logoBadge}>
                     <img src={njclogo} alt="National Junior College" />

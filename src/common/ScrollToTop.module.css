@@ -89,25 +89,12 @@
 }
 
 /* Theme Variables */
-:root {
-  --progress-bg-rgb: 255, 255, 255;
-  --progress-accent: #cc0000;
-  --progress-accent-rgb: 204, 0, 0;
-  --glass-bg-rgb: 255, 255, 255;
-}
-
-[data-theme="dark"] {
+:root,
+[data-theme="glass"] {
   --progress-bg-rgb: 31, 35, 37;
-  --progress-accent: #ff3333;
-  --progress-accent-rgb: 255, 51, 51;
+  --progress-accent: #22d3ee;
+  --progress-accent-rgb: 34, 211, 238;
   --glass-bg-rgb: 31, 35, 37;
-}
-
-[data-theme="light"] {
-  --progress-bg-rgb: 250, 250, 248;
-  --progress-accent: #1e3a8a;
-  --progress-accent-rgb: 30, 58, 138;
-  --glass-bg-rgb: 255, 255, 255;
 }
 
 @media (max-width: 768px) {

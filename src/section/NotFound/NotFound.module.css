@@ -188,25 +188,12 @@
 }
 
 /* Theme Variables */
-:root {
-  --notfound-bubble-rgb: 163, 0, 0;
-  --notfound-glass-rgb: 255, 255, 255;
-  --notfound-accent: #cc0000;
-  --notfound-accent-rgb: 163, 0, 0;
-}
-
-[data-theme="dark"] {
-  --notfound-bubble-rgb: 163, 0, 0;
+:root,
+[data-theme="glass"] {
+  --notfound-bubble-rgb: 34, 211, 238;
   --notfound-glass-rgb: 31, 35, 37;
-  --notfound-accent: #ff3333;
-  --notfound-accent-rgb: 163, 0, 0;
-}
-
-[data-theme="light"] {
-  --notfound-bubble-rgb: 30, 58, 138;
-  --notfound-glass-rgb: 255, 255, 255;
-  --notfound-accent: #3b82f6;
-  --notfound-accent-rgb: 30, 58, 138;
+  --notfound-accent: #22d3ee;
+  --notfound-accent-rgb: 34, 211, 238;
 }
 
 @media (max-width: 480px) {

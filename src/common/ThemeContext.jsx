@@ -1,27 +1,41 @@
-// filepath: /c:/Users/Ariff1422/Documents/GitHub/Portfolio-node/Portfolio-Website/src/common/ThemeContext.jsx
 import React, { createContext, useContext, useEffect, useState } from "react";
 
 const ThemeContext = createContext();
 
 export const useTheme = () => useContext(ThemeContext);
 
+export const THEME_IDS = [
+  "glass",
+  "japandi",
+  "ethereal",
+  "neoclassical",
+  "bauhaus",
+  "mystical-western",
+  "brutalism",
+  "surrealism",
+];
+
+export const DEFAULT_THEME = "glass";
+
 export const ThemeProvider = ({ children }) => {
-  const [theme, setTheme] = useState(
-    () => localStorage.getItem("theme") || "light"
-  );
+  const [theme, setThemeState] = useState(() => {
+    const stored = localStorage.getItem("portfolio-theme");
+    return THEME_IDS.includes(stored) ? stored : DEFAULT_THEME;
+  });
 
   useEffect(() => {
-    document.body.setAttribute("data-theme", theme);
-    localStorage.setItem("theme", theme);
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("portfolio-theme", theme);
   }, [theme]);
 
-  const toggleTheme = () => {
-    console.log("toggleTheme");
-    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  const setTheme = (themeId) => {
+    if (THEME_IDS.includes(themeId)) {
+      setThemeState(themeId);
+    }
   };
 
   return (
-    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme, setTheme, themes: THEME_IDS }}>
       {children}
     </ThemeContext.Provider>
   );

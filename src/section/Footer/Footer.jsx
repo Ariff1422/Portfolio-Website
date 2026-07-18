@@ -2,13 +2,10 @@ import React from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import styles from "./FooterStyles.module.css";
-import { useTheme } from "../../common/ThemeContext";
 
 function Footer() {
-  const { theme, toggleTheme } = useTheme(); // Assuming you have a context to manage the theme
-
   return (
-    <section className={styles.container} data-theme={theme}>
+    <section className={styles.container}>
       <p>
         © 2025 Ariff Muhammed <br />
         All rights reserved.

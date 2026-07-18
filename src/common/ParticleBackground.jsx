@@ -1,10 +1,8 @@
 import { useEffect, useRef } from "react";
-import { useTheme } from "./ThemeContext";
 import styles from "./ParticleBackground.module.css";
 
 function ParticleBackground() {
   const canvasRef = useRef(null);
-  const { theme } = useTheme();
   const animationRef = useRef(null);
   const particlesRef = useRef([]);
 
@@ -26,10 +24,8 @@ function ParticleBackground() {
     // Particle configuration
     const particleCount = 50;
     const connectionDistance = 150;
-    const particleColor =
-      theme === "dark" ? "rgba(163, 0, 0, 0.5)" : "rgba(10, 43, 89, 0.2)";
-    const lineColor =
-      theme === "dark" ? "rgba(163, 0, 0, 0.2)" : "rgba(10, 43, 89, 0.08)";
+    const particleColor = "rgba(34, 211, 238, 0.5)";
+    const lineColor = "rgba(34, 211, 238, 0.2)";
 
     // Initialize particles only once
     if (particles.length === 0) {
@@ -91,7 +87,7 @@ function ParticleBackground() {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [theme]);
+  }, []);
 
   return <canvas ref={canvasRef} className={styles.particleCanvas} />;
 }

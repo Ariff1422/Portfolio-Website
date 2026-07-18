@@ -2,7 +2,7 @@
 .cursorFollower {
   position: fixed;
   pointer-events: none;
-  z-index: 9999;
+  z-index: 999999;
   transition: transform 0.15s ease-out, opacity 0.3s ease;
   opacity: 0;
 }
@@ -18,7 +18,7 @@
   height: 0;
   border-left: 12px solid transparent;
   border-right: 12px solid transparent;
-  border-bottom: 24px solid #a30000;
+  border-bottom: 24px solid #22d3ee;
   background: transparent;
   border-radius: 0;
   transform: translate(-25%, -10%) rotate(-45deg);
@@ -33,7 +33,7 @@
 .cursor.pointer {
   border-bottom-color: #ffffff;
   transform: translate(-25%, -10%) rotate(-45deg) scale(1.1);
-  filter: drop-shadow(0 0 2px #a30000) drop-shadow(0 0 4px rgba(163, 0, 0, 0.6));
+  filter: drop-shadow(0 0 2px #22d3ee) drop-shadow(0 0 4px rgba(34, 211, 238, 0.6));
 }
 
 .cursorFollower.pointer {
@@ -55,6 +55,31 @@ select {
   cursor: none !important;
 }
 
+/*
+  Restore the real system cursor while the Resume modal is open --
+  the custom cursor tracks mousemove on the parent document only, so it
+  goes blank the moment the pointer enters the PDF <iframe>'s own
+  document. A real cursor stays visible and consistent across both.
+*/
+body:global(.nativeCursor) {
+  cursor: auto;
+}
+
+body:global(.nativeCursor) a,
+body:global(.nativeCursor) button,
+body:global(.nativeCursor) .hover,
+body:global(.nativeCursor) [role="button"],
+body:global(.nativeCursor) input,
+body:global(.nativeCursor) textarea,
+body:global(.nativeCursor) select {
+  cursor: pointer !important;
+}
+
+body:global(.nativeCursor) .cursor,
+body:global(.nativeCursor) .cursorFollower {
+  display: none;
+}
+
 /* Re-enable default cursor on mobile */
 @media (max-width: 768px) {
   .cursor,
@@ -74,21 +99,3 @@ select {
   }
 }
 
-/* Light theme adjustments */
-[data-theme="light"] .cursor {
-  border-bottom-color: #1e3a8a;
-  filter: drop-shadow(0 0 1px #ffffff) drop-shadow(0 0 2px rgba(255, 255, 255, 0.8));
-}
-
-[data-theme="light"] .cursorFollower {
-  display: none;
-}
-
-[data-theme="light"] .cursor.pointer {
-  border-bottom-color: #ffffff;
-  filter: drop-shadow(0 0 2px #1e3a8a) drop-shadow(0 0 4px rgba(30, 58, 138, 0.6));
-}
-
-[data-theme="light"] .cursorFollower.pointer {
-  display: none;
-}

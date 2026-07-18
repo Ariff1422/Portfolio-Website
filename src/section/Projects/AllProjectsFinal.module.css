@@ -29,16 +29,6 @@
   }
 }
 
-@keyframes bubbleFloat {
-  0%,
-  100% {
-    transform: translate(0, 0);
-  }
-  50% {
-    transform: translate(20px, -30px);
-  }
-}
-
 @keyframes shimmer {
   0% {
     background-position: -200% center;
@@ -62,84 +52,6 @@
 
 .pageContainer.visible {
   opacity: 1;
-}
-
-/* Floating Bubbles */
-.bubbleContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 100%;
-  overflow: visible;
-  pointer-events: none;
-  z-index: 0;
-}
-
-.bubble1,
-.bubble2,
-.bubble3,
-.bubble4,
-.bubble5,
-.bubble6 {
-  position: absolute;
-  border-radius: 50%;
-  background: radial-gradient(
-    circle at 30% 30%,
-    rgba(var(--bubble-color-rgb), 0.3),
-    rgba(var(--bubble-color-rgb), 0.05)
-  );
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
-  will-change: transform;
-}
-
-.bubble1 {
-  width: 600px;
-  height: 600px;
-  top: -5%;
-  right: -10%;
-  animation: bubbleFloat 25s ease-in-out infinite;
-}
-
-.bubble2 {
-  width: 400px;
-  height: 400px;
-  top: 85%;
-  left: -10%;
-  animation: bubbleFloat 30s ease-in-out infinite 5s;
-}
-
-.bubble3 {
-  width: 350px;
-  height: 350px;
-  top: 35%;
-  left: 60%;
-  animation: bubbleFloat 28s ease-in-out infinite 10s;
-}
-
-.bubble4 {
-  width: 450px;
-  height: 450px;
-  top: 70%;
-  right: -10%;
-  animation: bubbleFloat 32s ease-in-out infinite 3s;
-}
-
-.bubble5 {
-  width: 380px;
-  height: 380px;
-  top: 15%;
-  left: -10%;
-  animation: bubbleFloat 27s ease-in-out infinite 8s;
-}
-
-.bubble6 {
-  width: 420px;
-  height: 420px;
-  top: 50%;
-  left: 30%;
-  animation: bubbleFloat 29s ease-in-out infinite 12s;
 }
 
 /* Page Hero */
@@ -1010,20 +922,12 @@
 }
 
 /* Theme Variables */
-:root {
+:root,
+[data-theme="glass"] {
   --glass-bg-rgb: 255, 255, 255;
-  --glass-border: rgba(226, 232, 240, 0.5);
-  --accent-rgb: 30, 58, 138;
-  --accent-color: #1e3a8a;
-  --accent-hover-color: #172554;
-  --bubble-color-rgb: 30, 58, 138;
-}
-
-[data-theme="dark"] {
-  --glass-bg-rgb: 30, 41, 59;
-  --glass-border: rgba(51, 65, 85, 0.5);
-  --accent-rgb: 163, 0, 0;
-  --accent-color: #a30000;
-  --accent-hover-color: #8a0000;
-  --bubble-color-rgb: 163, 0, 0;
+  --glass-border: rgba(255, 255, 255, 0.18);
+  --accent-rgb: 34, 211, 238;
+  --accent-color: #22d3ee;
+  --accent-hover-color: #4de0f5;
+  --bubble-color-rgb: 34, 211, 238;
 }
