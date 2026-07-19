@@ -320,24 +320,6 @@
   background: #f4a400;
 }
 
-/* Skills -- flat text list, uppercase, wide letter-spacing, separated by a thick rule */
-.skillsList {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem 2rem;
-  margin-top: 2rem;
-  padding-top: 1.5rem;
-  border-top: 3px solid #111111;
-}
-
-.skillItem {
-  font-size: 0.85rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: #111111;
-}
-
 /* Responsive */
 @media (max-width: 640px) {
   .hero {
@@ -360,7 +342,10 @@
   }
 
   .ctaRow .linkBtn,
-  .iconRow .linkBtn {
+  .iconRow .linkBtn,
+  .ctaRow .linkBtn:not(:first-child),
+  .iconRow .linkBtn:not(:first-child) {
+    justify-content: center;
     border-left: 3px solid #111111;
     border-top: none;
   }
