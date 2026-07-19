@@ -13,7 +13,7 @@ const EDUCATION = [
     logo: NusLogo,
     logoBg: "#f5f0e6",
     details: [
-      "Current GPA: 4.54/5.0",
+      "Current GPA: 4.55/5.0",
       "Minor in Data Analytics",
       "NUS Hack & Roll 2025 - Top 15 Finalist",
       "DSTA BrainHack 2025 - Semifinalist",
