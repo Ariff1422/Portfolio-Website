@@ -4,18 +4,9 @@ const ThemeContext = createContext();
 
 export const useTheme = () => useContext(ThemeContext);
 
-export const THEME_IDS = [
-  "glass",
-  "japandi",
-  "ethereal",
-  "neoclassical",
-  "bauhaus",
-  "mystical-western",
-  "brutalism",
-  "surrealism",
-];
+export const THEME_IDS = ["bauhaus", "jdm"];
 
-export const DEFAULT_THEME = "glass";
+export const DEFAULT_THEME = "bauhaus";
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setThemeState] = useState(() => {

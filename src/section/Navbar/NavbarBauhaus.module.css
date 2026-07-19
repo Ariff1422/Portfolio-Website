@@ -1,0 +1,281 @@
+.navbar {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: fit-content;
+  max-width: calc(100vw - 2rem);
+}
+
+.navContent {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(242, 237, 228, 0.96);
+  border: 3px solid #111111;
+  box-shadow: 0 6px 0 rgba(17, 17, 17, 0.15);
+  padding: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  background: #e63946;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 0.95rem;
+  border: 2px solid #111111;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navLinks {
+  display: flex;
+  gap: 0;
+}
+
+.navLink {
+  padding: 0.5rem 0.9rem;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  text-decoration: none;
+  color: #111111;
+  border: 2px solid #111111;
+  border-left: none;
+  background: #ffffff;
+  white-space: nowrap;
+}
+
+.navLink:first-child {
+  border-left: 2px solid #111111;
+}
+
+.navLink.active {
+  background: #f4a400;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0;
+}
+
+.socialLink {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #111111;
+  border-left: none;
+  background: #ffffff;
+  color: #111111;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: background 0.15s ease;
+}
+
+.socialLinks .socialLink:first-child {
+  border-left: 2px solid #111111;
+}
+
+.socialLink:hover {
+  background: #f4a400;
+}
+
+/*
+  Multiverse selector -- Bauhaus reading of the same 4-quadrant theme pad
+  used in JDM, flattened to sit flush inside the pill rather than as its
+  own framed poster: same border weight and height as the adjacent
+  nav/social items, no separate outer shadow, borders shared the same way
+  .navLink/.socialLink already butt up against each other.
+*/
+.multiverseSelector {
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  width: 152px;
+  height: auto;
+  background: #ffffff;
+  border: 2px solid #111111;
+  border-left: none;
+  flex-shrink: 0;
+}
+
+.matrixCrosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #111111;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.quadrantNode {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  padding: 6px 4px;
+  border: 1px solid #111111;
+  border-radius: 0;
+  background: transparent;
+  color: #111111;
+  cursor: pointer;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  line-height: 1.1;
+}
+
+.quadCode {
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 900;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+}
+
+.quadLabel {
+  display: block;
+  font-size: 0.4rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  opacity: 0.75;
+  color: inherit;
+  text-transform: uppercase;
+}
+
+/* J2K quadrant -- Canary Yellow when active while viewed through Bauhaus */
+.qJ2K.quadrantActive {
+  background: #ffcc00;
+  color: #111111;
+}
+
+/* Bauhaus quadrant -- the core active state, stark Universal Primary Red */
+.qBAU.quadrantActive {
+  background: #ff2a00;
+  color: #ffffff;
+}
+
+/* Mystical Western quadrant -- stark Bauhaus Blue */
+.qWSTN.quadrantActive {
+  background: #0033aa;
+  color: #ffffff;
+}
+
+/* Ethereal quadrant -- solid void black */
+.qETHR.quadrantActive {
+  background: #111111;
+  color: #ffffff;
+}
+
+/* Locked quadrants -- dimmed, non-interactive, until those themes exist */
+.quadrantLocked {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/*
+  Desktop vs. mobile selector placement -- on wide viewports the pad sits
+  inline at the end of the single-row pill. Below 640px it's replaced by a
+  compact triple-line toggle so the pill keeps a single-row height; tapping
+  the toggle pops the same pad up above the navbar instead of growing the
+  pill in place.
+*/
+.desktopOnly {
+  display: grid;
+}
+
+.mobileToggle {
+  display: none;
+}
+
+.mobilePopover {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .socialLinks {
+    display: none;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #111111;
+    background: #ffffff;
+    color: #111111;
+    font-size: 1.1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .mobileToggle:hover,
+  .mobileToggle[aria-expanded="true"] {
+    background: #f4a400;
+  }
+
+  .mobilePopover {
+    display: grid;
+    position: absolute;
+    bottom: calc(100% + 0.6rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: auto;
+    background: #f2f0ea;
+    border: 4px solid #111111;
+    border-left: 4px solid #111111;
+    box-shadow: 8px 8px 0px #111111;
+  }
+
+  .mobilePopover .quadrantNode {
+    border: 2px solid #111111;
+  }
+
+  .mobilePopover .quadCode {
+    font-size: 0.7rem;
+  }
+
+  .mobilePopover .quadLabel {
+    display: block;
+    font-size: 0.55rem;
+    font-weight: 500;
+    border-top: 1px solid currentColor;
+    margin-top: 4px;
+    padding-top: 2px;
+    text-transform: uppercase;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    bottom: 1rem;
+  }
+
+  .navContent {
+    padding: 0.4rem;
+    gap: 0.35rem;
+  }
+}

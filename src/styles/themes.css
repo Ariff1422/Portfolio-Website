@@ -37,7 +37,6 @@
 [data-theme="japandi"],
 [data-theme="ethereal"],
 [data-theme="neoclassical"],
-[data-theme="bauhaus"],
 [data-theme="mystical-western"],
 [data-theme="brutalism"],
 [data-theme="surrealism"] {
@@ -64,12 +63,84 @@
   --glass-glow: 0 20px 50px rgba(0, 0, 0, 0.45), 0 -20px 40px rgba(37, 99, 235, 0.06) inset;
 }
 
+/*
+  Bauhaus -- real theme (section 3.4 of the brief), not a stub.
+  Flat, hard-edged, no blur/rounding. Own components (HeroBauhaus, etc.)
+  render their own structure; these tokens cover shared/body-level styling.
+*/
+[data-theme="bauhaus"] {
+  --bg-solid: #f2ede4;
+  --bg-glow-1: none;
+  --bg-glow-2: none;
+  --bg-glow-3: none;
+  --bg-glow-4: none;
+  --bg-base: none;
+  --surface: #ffffff;
+  --accent: #e63946;
+  --accent2: #1d3557;
+  --text: #111111;
+  --font-display: "Space Grotesk", Arial, sans-serif;
+  --font-body: "Space Grotesk", Arial, sans-serif;
+  --border-radius: 0px;
+  --shadow: none;
+  --texture: none;
+  --motion: none;
+
+  --glass-surface: #ffffff;
+  --glass-border: #111111;
+  --glass-blur: none;
+  --glass-glow: none;
+}
+
+/*
+  JDM/Y2K -- real theme, in progress (section-by-section build). Dark
+  neon-night palette; own components (HeroJdm, etc.) render their own
+  structure, these tokens cover shared/body-level styling.
+*/
+[data-theme="jdm"] {
+  --bg-solid: #0a0a12;
+  --bg-glow-1: none;
+  --bg-glow-2: none;
+  --bg-glow-3: none;
+  --bg-glow-4: none;
+  --bg-base: none;
+  --surface: rgba(10, 10, 18, 0.55);
+  --accent: #ff1e6e;
+  --accent2: #00dcff;
+  --text: #f5f0e6;
+  --font-display: "Bebas Neue", "Noto Sans JP", sans-serif;
+  --font-body: "Space Mono", "Noto Sans JP", monospace;
+  --border-radius: 2px;
+  --shadow: 0 0 40px rgba(255, 30, 110, 0.25);
+  --texture: none;
+  --motion: none;
+
+  --glass-surface: rgba(10, 10, 18, 0.55);
+  --glass-border: rgba(0, 220, 255, 0.35);
+  --glass-blur: blur(6px);
+  --glass-glow: 0 0 40px rgba(255, 30, 110, 0.25);
+}
+
 body {
   background-color: var(--bg-solid);
   background-image: var(--bg-glow-1), var(--bg-glow-2), var(--bg-glow-3), var(--bg-glow-4), var(--bg-base);
   background-attachment: fixed;
   color: var(--text);
   position: relative;
+}
+
+/*
+  JDM blueprint grid -- thin neon grid lines every 40px, echoing CAD
+  software / navigation HUDs / early blueprints. Fixed to the viewport so
+  it reads as one continuous grid behind every section rather than
+  restarting per-section.
+*/
+[data-theme="jdm"] body {
+  background-image:
+    linear-gradient(rgba(0, 220, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 220, 255, 0.035) 1px, transparent 1px);
+  background-size: 40px 40px;
+  background-attachment: fixed;
 }
 
 /* Subtle grain overlay -- fills the flat/blank areas between the glow blobs with texture */
@@ -82,6 +153,30 @@ body::before {
   mix-blend-mode: overlay;
   pointer-events: none;
   z-index: 0;
+}
+
+/* Bauhaus is flat with no texture per the brief -- suppress the grain overlay */
+[data-theme="bauhaus"] body::before,
+[data-theme="jdm"] body::before {
+  display: none;
+}
+
+/*
+  JDM CRT scanline overlay -- a subtle Y2K/retro-monitor texture: thin
+  horizontal scanlines plus a faint RGB channel-split tint, layered above
+  every section (fixed, click-through) for an analog terminal feel.
+*/
+[data-theme="jdm"] body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%),
+    linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.015), rgba(0, 0, 255, 0.04));
+  background-size: 100% 4px, 6px 100%;
+  z-index: 9999;
+  pointer-events: none;
+  mix-blend-mode: overlay;
 }
 
 #root {

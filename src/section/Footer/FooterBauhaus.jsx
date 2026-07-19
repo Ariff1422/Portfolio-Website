@@ -1,16 +1,14 @@
-import React from "react";
 import { FaLinkedin, FaGithub } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-import styles from "./FooterStyles.module.css";
+import styles from "./FooterBauhaus.module.css";
 
-function Footer() {
+function FooterBauhaus() {
   return (
-    <section className={styles.container}>
+    <footer className={styles.footer}>
       <p>
-        © 2026 Ariff Muhammed <br />
-        All rights reserved.
+        © 2026 Ariff Muhammed — All rights reserved.
       </p>
-      <div className={styles.icons}>
+      <div className={styles.footerIcons}>
         <a
           href="https://www.linkedin.com/in/ariff-muhammed-ahsan/"
           target="_blank"
@@ -29,8 +27,8 @@ function Footer() {
           <MdEmail />
         </a>
       </div>
-    </section>
+    </footer>
   );
 }
 
-export default Footer;
+export default FooterBauhaus;

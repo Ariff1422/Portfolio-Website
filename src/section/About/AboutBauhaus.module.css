@@ -1,0 +1,73 @@
+.aboutSection {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+}
+
+.secBacking {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: #f2ede4;
+  opacity: 0.94;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.sectionHeader {
+  margin-bottom: 2.5rem;
+}
+
+.sectionLabel {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  color: #e63946;
+  margin-bottom: 0.3rem;
+}
+
+.sectionTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0;
+  color: #111111;
+}
+
+.aboutCard {
+  background: #ffffff;
+  border: 3px solid #111111;
+  padding: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.aboutText {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: #222222;
+  margin: 0;
+  max-width: 70ch;
+}
+
+.highlight {
+  font-weight: 800;
+  color: #e63946;
+}
+
+@media (max-width: 640px) {
+  .aboutCard {
+    padding: 1.75rem;
+  }
+}

@@ -10,6 +10,17 @@
   --footer-text-color: #9ea3a8;
 }
 
+[data-theme="bauhaus"] {
+  --btn-color: #111111;
+  --btn-hover-color: #e63946;
+  --btn-text-color: #ffffff;
+  --btn-text-color-hover: #ffffff;
+  --project-card-color: #111111;
+  --text-color: #111111;
+  --form-text-color: #111111;
+  --footer-text-color: #111111;
+}
+
 body {
   display: flex;
   justify-content: center;
@@ -35,12 +46,6 @@ p {
   padding: 0;
 }
 
-h2,
-h3,
-p {
-  font-family: "Fira Sans", serif;
-}
-
 h1,
 h2 {
   text-transform: uppercase;
@@ -52,7 +57,6 @@ h3 {
 }
 
 h1 {
-  font-family: "Rubik", sans-serif;
   font-size: 29px;
 }
 

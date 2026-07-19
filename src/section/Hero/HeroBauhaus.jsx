@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import styles from "./HeroGlass.module.css";
+import styles from "./HeroBauhaus.module.css";
 import CV from "../../assets/AriffM_Resume.pdf";
 import ResumeModal from "../../common/ResumeModal";
 
-function HeroGlass() {
+function HeroBauhaus() {
   const [currentRole, setCurrentRole] = useState(0);
   const [showResumeModal, setShowResumeModal] = useState(false);
 
@@ -23,15 +23,26 @@ function HeroGlass() {
 
   return (
     <section className={styles.hero}>
+      <div className={styles.secBacking} />
+      <div className={styles.edgeBandTop} aria-hidden="true" />
+      <div className={styles.edgeBandBottom} aria-hidden="true" />
       <div className={styles.container}>
-        {/* Status line */}
-        <div className={`${styles.glass} ${styles.statusPanel}`}>
+        <div className={styles.shapeCircle} />
+        <div className={styles.shapeTriangle} />
+        <div className={styles.shapeSquare} />
+
+        <div className={styles.statusLine}>
           <span className={styles.statusDot} />
           <span className={styles.statusText}>Available for opportunities</span>
         </div>
 
-        {/* Hi I'm / Name / Role / Description / Actions -- one combined glass card */}
-        <div className={`${styles.glass} ${styles.introPanel}`}>
+        <div className={styles.introBlock}>
+          <div className={styles.lineAccent} aria-hidden="true">
+            <span />
+            <span />
+            <span />
+            <span />
+          </div>
           <span className={styles.greeting}>Hi, I'm</span>
           <h1 className={styles.name}>Ariff Muhammed</h1>
 
@@ -63,7 +74,7 @@ function HeroGlass() {
               >
                 Resume
               </button>
-              <a href="#projects" className={styles.linkBtn}>
+              <a href="#projects" className={`${styles.linkBtn} ${styles.accent}`}>
                 <svg viewBox="0 0 20 20" fill="none" aria-hidden="true">
                   <path
                     d="M7 13L10 16L13 13M10 16V6"
@@ -103,7 +114,6 @@ function HeroGlass() {
             </div>
           </div>
 
-          {/* Skills -- flat text list, curated for now; will move to an icon-based layout later */}
           <div className={styles.skillsList}>
             {["Python", "React", "TypeScript", "PyTorch", "Verilog", "PostgreSQL"].map(
               (skill) => (
@@ -125,4 +135,4 @@ function HeroGlass() {
   );
 }
 
-export default HeroGlass;
+export default HeroBauhaus;

@@ -1,0 +1,372 @@
+.page {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem 6rem;
+}
+
+.pageBacking {
+  position: fixed;
+  inset: 0;
+  background: #f2ede4;
+  opacity: 0.94;
+  z-index: -1;
+}
+
+.pageInner {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+  Edge-bleed band -- a stripe bundle fixed to the viewport, starting
+  off-screen at the top-right corner and sweeping diagonally in toward
+  the content column, echoing the "25 METRO" poster's bands that cut
+  across the whole composition.
+*/
+.edgeBand {
+  position: fixed;
+  z-index: 0;
+  top: -4%;
+  right: -12%;
+  width: 46%;
+  height: 110px;
+  transform: rotate(12deg);
+  transform-origin: right center;
+  opacity: 0.85;
+  background: repeating-linear-gradient(
+    90deg,
+    #111111 0px,
+    #111111 22px,
+    transparent 22px,
+    transparent 30px,
+    #e63946 30px,
+    #e63946 40px,
+    transparent 40px,
+    transparent 48px
+  );
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  pointer-events: none;
+}
+
+@media (max-width: 1400px) {
+  .edgeBand {
+    display: none;
+  }
+}
+
+/*
+  Mask circles -- striped disc accents fixed to the viewport, sitting
+  on the beige backing outside the content column. Each is a circle
+  clipped from the same pink/yellow pinstripe pattern as the old card
+  corner accent, scattered around the mask for variety.
+*/
+.maskCircle {
+  position: fixed;
+  z-index: 0;
+  border-radius: 50%;
+  background: repeating-linear-gradient(
+    -45deg,
+    #e63946 0px,
+    #e63946 5px,
+    transparent 5px,
+    transparent 11px,
+    #f4a400 11px,
+    #f4a400 14px,
+    transparent 14px,
+    transparent 20px
+  );
+  opacity: 0.75;
+  pointer-events: none;
+}
+
+.maskCircle1 {
+  top: 28%;
+  left: 3%;
+  width: 100px;
+  height: 100px;
+}
+
+.maskCircle2 {
+  bottom: 14%;
+  right: 4%;
+  width: 150px;
+  height: 150px;
+}
+
+.maskCircle3 {
+  top: 8%;
+  left: 8%;
+  width: 60px;
+  height: 60px;
+}
+
+.maskCircle4 {
+  bottom: 40%;
+  right: 2%;
+  width: 70px;
+  height: 70px;
+}
+
+.maskCircle5 {
+  top: 60%;
+  left: 1%;
+  width: 45px;
+  height: 45px;
+}
+
+@media (max-width: 1400px) {
+  .maskCircle {
+    display: none;
+  }
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 3px solid #111111;
+  background: #ffffff;
+  padding: 0.6rem 1.2rem;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: #111111;
+  margin-bottom: 3rem;
+}
+
+.backButton:hover {
+  background: #f4a400;
+}
+
+.heroContent {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.heroLabel {
+  display: block;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #e63946;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
+  color: #111111;
+}
+
+.heroSubtitle {
+  font-size: 1.05rem;
+  color: #333333;
+  margin: 0;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 3px solid #111111;
+  background: #ffffff;
+  padding: 0.9rem 1.25rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: inherit;
+  font-size: 0.95rem;
+  background: transparent;
+}
+
+.searchIcon {
+  flex-shrink: 0;
+}
+
+.controlsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 3px solid #111111;
+  background: #ffffff;
+  padding: 1rem 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.filterSelect,
+.sortSelect {
+  border: 2px solid #111111;
+  background: #f2ede4;
+  padding: 0.6rem 1rem;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  border: 3px solid #111111;
+  border-right: none;
+  border-bottom: none;
+}
+
+.projectCard {
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+  border-right: 3px solid #111111;
+  border-bottom: 3px solid #111111;
+  padding: 0 0 2rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 16 / 8.5;
+  overflow: hidden;
+  background: #ffffff;
+  border-bottom: 3px solid #111111;
+  margin-bottom: 1.5rem;
+}
+
+/*
+  In-progress card -- faded treatment for projects still being built,
+  no image/no Code-Demo buttons since there's nothing finished to link to yet.
+*/
+.inProgressCard {
+  opacity: 0.55;
+  padding-top: 2rem;
+}
+
+.inProgressBadge {
+  display: inline-block;
+  color: #111111;
+  background: transparent;
+  border: 2px dashed #111111;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 0.25rem 0.6rem;
+  margin: 0 2rem 1rem;
+  width: fit-content;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projCategory {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  color: #ffffff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  margin: 0 2rem 1rem;
+  width: fit-content;
+}
+
+.projTitle {
+  position: relative;
+  z-index: 1;
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0 2rem 0.5rem;
+  color: #111111;
+}
+
+.projDesc {
+  position: relative;
+  z-index: 1;
+  font-size: 0.9rem;
+  color: #333333;
+  margin: 0 2rem 1rem;
+  line-height: 1.55;
+  flex-grow: 1;
+}
+
+.techTags {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 0 2rem 1.25rem;
+}
+
+.techTag {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  color: #111111;
+}
+
+.cardActions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  border-top: 2px solid #111111;
+  padding-top: 1rem;
+  margin: 0 2rem;
+}
+
+.actionBtn {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  text-decoration: none;
+  border: 2px solid #111111;
+  color: #111111;
+  background: #ffffff;
+}
+
+.actionBtn:first-child {
+  margin-right: -2px;
+}
+
+.actionBtn.primary {
+  background: #f4a400;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 6rem 1rem 3rem;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+  }
+
+  .controlsRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&display=swap");
+
+.skillsSection {
+  position: relative;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 4rem 2rem;
+  background: transparent;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+}
+
+.sectionHeader {
+  margin-bottom: 2.5rem;
+}
+
+.sectionLabel {
+  display: block;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8rem;
+  color: #ff1e6e;
+  margin-bottom: 0.3rem;
+}
+
+.sectionTitle {
+  font-family: "Bebas Neue", sans-serif;
+  font-size: 2.4rem;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #f5f0e6;
+}
+
+/*
+  Legend -- explains the evaluation marks (primary/working knowledge),
+  echoing the small key printed on Japanese spec sheets / car magazines.
+*/
+.legend {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.75rem;
+  color: rgba(245, 240, 230, 0.6);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.legendMark {
+  color: #ff8a3d;
+  font-size: 0.9rem;
+}
+
+.groupGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+/*
+  Cut-corner panel -- clips the bottom-right corner at an angle, echoing
+  aero-kit body panels / cyberpunk HUD frames instead of a plain rectangle.
+*/
+.groupCard {
+  position: relative;
+  background: rgba(10, 11, 16, 0.6);
+  border: 1px solid rgba(0, 220, 255, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  clip-path: polygon(
+    0 0,
+    100% 0,
+    100% calc(100% - 16px),
+    calc(100% - 16px) 100%,
+    0 100%
+  );
+}
+
+/*
+  Decal header -- a skewed, high-contrast block label echoing aftermarket
+  tuning-house stickers (Spoon/HKS-style) rather than a plain text title.
+*/
+.decalWrap {
+  padding: 1rem 1.25rem 0.5rem;
+}
+
+.decalHeader {
+  display: inline-block;
+  margin: 0;
+  padding: 0.2rem 0.7rem;
+  font-family: "Space Mono", monospace;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #0a0a12;
+  transform: skewX(-10deg);
+}
+
+/*
+  Spec table -- zebra-striped rows with an evaluation mark per skill,
+  echoing racing-game spec screens (Gran Turismo / NFS-style data lanes)
+  rather than a plain icon list.
+*/
+.specTable {
+  padding: 0.5rem 0 1rem;
+}
+
+.specRow {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 1.25rem;
+}
+
+.specRowAlt {
+  background: rgba(0, 220, 255, 0.035);
+}
+
+.evalMark {
+  font-family: "Space Mono", monospace;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: rgba(245, 240, 230, 0.35);
+  flex-shrink: 0;
+  width: 1rem;
+  text-align: center;
+}
+
+.skillIcon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.skillImage {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.skillLabel {
+  font-family: "Space Mono", monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(245, 240, 230, 0.85);
+}
+
+@media (max-width: 640px) {
+  .groupGrid {
+    grid-template-columns: 1fr;
+  }
+}

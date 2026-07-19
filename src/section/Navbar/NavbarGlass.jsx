@@ -1,10 +1,23 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styles from "./NavbarGlass.module.css";
+import { useTheme } from "../../common/ThemeContext";
+
+const THEME_LABELS = {
+  glass: "Glass",
+  japandi: "Japandi",
+  ethereal: "Ethereal",
+  neoclassical: "Neoclassical",
+  bauhaus: "Bauhaus",
+  "mystical-western": "Mystical Western",
+  brutalism: "Brutalism",
+  surrealism: "Surrealism",
+};
 
 function NavbarGlass() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, setTheme, themes } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -90,6 +103,20 @@ function NavbarGlass() {
 
         {/* Right Section */}
         <div className={styles.rightSection}>
+          {/* Theme Switcher */}
+          <select
+            className={styles.themeSelect}
+            value={theme}
+            onChange={(e) => setTheme(e.target.value)}
+            aria-label="Select theme"
+          >
+            {themes.map((id) => (
+              <option key={id} value={id}>
+                {THEME_LABELS[id] || id}
+              </option>
+            ))}
+          </select>
+
           {/* Hamburger */}
           <button
             className={styles.hamburger}
