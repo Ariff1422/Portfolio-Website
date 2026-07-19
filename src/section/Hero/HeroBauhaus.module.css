@@ -1,0 +1,372 @@
+/* Hero Section -- Bauhaus: flat, hard-edged, structural shapes as layout elements */
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem 6rem;
+}
+
+.secBacking {
+  position: absolute;
+  inset: 0;
+  background: #f2ede4;
+  opacity: 0.94;
+  z-index: 0;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/*
+  Edge-bleed bands -- stripe bundles that start off-screen at the
+  viewport edge and sweep diagonally into the section, echoing the
+  "25 METRO" poster's bands that cut across the whole composition
+  rather than sitting contained in one spot.
+*/
+.edgeBandTop {
+  position: absolute;
+  z-index: 1;
+  top: 2%;
+  left: -15%;
+  width: 55%;
+  height: 90px;
+  transform: rotate(-10deg);
+  transform-origin: left center;
+  opacity: 0.85;
+  background: repeating-linear-gradient(
+    90deg,
+    #1d3557 0px,
+    #1d3557 22px,
+    transparent 22px,
+    transparent 30px,
+    #e63946 30px,
+    #e63946 40px,
+    transparent 40px,
+    transparent 48px
+  );
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, #000 18%, #000 82%, transparent 100%);
+  pointer-events: none;
+}
+
+.edgeBandBottom {
+  position: absolute;
+  z-index: 1;
+  bottom: 2%;
+  left: 50%;
+  width: 100vw;
+  height: 70px;
+  transform: translateX(-50%) rotate(-10deg);
+  opacity: 0.85;
+  background: repeating-linear-gradient(
+    90deg,
+    #f4a400 0px,
+    #f4a400 22px,
+    transparent 22px,
+    transparent 30px,
+    #111111 30px,
+    #111111 38px,
+    transparent 38px,
+    transparent 46px
+  );
+  pointer-events: none;
+}
+
+@media (max-width: 900px) {
+  .edgeBandTop,
+  .edgeBandBottom {
+    display: none;
+  }
+}
+
+/* Structural shapes -- literal circles/triangles/squares as layout elements, not decoration */
+.shapeCircle {
+  position: absolute;
+  top: -3rem;
+  right: -2rem;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background: #e63946;
+  z-index: 0;
+}
+
+.shapeTriangle {
+  position: absolute;
+  top: 6rem;
+  right: 6rem;
+  width: 0;
+  height: 0;
+  border-left: 55px solid transparent;
+  border-right: 55px solid transparent;
+  border-bottom: 95px solid #1d3557;
+  z-index: 0;
+}
+
+.shapeSquare {
+  position: absolute;
+  top: -1rem;
+  right: 9rem;
+  width: 60px;
+  height: 60px;
+  background: #f4a400;
+  z-index: 0;
+}
+
+/* Status line -- flat rule, no pill/badge */
+.statusLine {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-bottom: 2rem;
+}
+
+.statusDot {
+  width: 12px;
+  height: 12px;
+  background: #2a9d8f;
+  border-radius: 50%;
+}
+
+.statusText {
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #111111;
+}
+
+/* Main block -- flat white panel, hard black border, no radius, no shadow */
+.introBlock {
+  position: relative;
+  z-index: 1;
+  background: #ffffff;
+  border: 3px solid #111111;
+  padding: 3rem;
+  overflow: hidden;
+}
+
+/*
+  Line accent -- small cluster of parallel diagonal lines in the corner,
+  echoing the "25 METRO" poster's pinstripe motif. Rendered directly on
+  the card in the foreground, at full opacity, not tucked into the
+  background layer.
+*/
+.lineAccent {
+  position: absolute;
+  top: -1.5rem;
+  right: -1.5rem;
+  width: 90px;
+  height: 90px;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.lineAccent span {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 160px;
+  height: 8px;
+  transform-origin: center;
+  transform: translate(-50%, -50%) rotate(35deg);
+}
+
+.lineAccent span:nth-child(1) {
+  top: calc(50% - 22px);
+  background: #111111;
+}
+
+.lineAccent span:nth-child(2) {
+  top: calc(50% - 7px);
+  background: #e63946;
+}
+
+.lineAccent span:nth-child(3) {
+  top: calc(50% + 8px);
+  background: #f4a400;
+}
+
+.lineAccent span:nth-child(4) {
+  top: calc(50% + 23px);
+  background: #1d3557;
+}
+
+.greeting {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #444444;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+
+.name {
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-size: clamp(2.6rem, 6.5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin: 0 0 1.25rem;
+  color: #111111;
+}
+
+/* Role cycling */
+.roleContainer {
+  height: 2.2rem;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.25rem;
+}
+
+.roleWrapper {
+  position: relative;
+  height: 100%;
+}
+
+.role {
+  font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+  font-weight: 700;
+  color: #e63946;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.roleActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.description {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #222222;
+  max-width: 48ch;
+  margin: 0 0 2rem;
+  font-weight: 500;
+}
+
+/* Actions -- flat solid-color blocks, no rounded corners, no blur */
+.actionsBlock {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.ctaRow,
+.iconRow {
+  display: flex;
+  gap: 0;
+}
+
+.linkBtn {
+  padding: 0.85rem 1.5rem;
+  font-family: "Space Grotesk", Arial, sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 3px solid #111111;
+  color: #111111;
+  background: #ffffff;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.ctaRow .linkBtn:not(:first-child),
+.iconRow .linkBtn:not(:first-child) {
+  border-left: none;
+}
+
+.linkBtn:hover {
+  transform: translate(-2px, -2px);
+}
+
+.linkBtn svg {
+  width: 16px;
+  height: 16px;
+}
+
+.linkBtn.iconOnly {
+  padding: 0.85rem 1.1rem;
+}
+
+.linkBtn.primary {
+  background: #1d3557;
+  color: #ffffff;
+}
+
+.linkBtn.accent {
+  background: #f4a400;
+}
+
+/* Skills -- flat text list, uppercase, wide letter-spacing, separated by a thick rule */
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 2rem;
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 3px solid #111111;
+}
+
+.skillItem {
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #111111;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .hero {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .introBlock {
+    padding: 2rem 1.5rem;
+  }
+
+  .shapeCircle,
+  .shapeTriangle,
+  .shapeSquare {
+    display: none;
+  }
+
+  .ctaRow,
+  .iconRow {
+    flex-direction: column;
+  }
+
+  .ctaRow .linkBtn,
+  .iconRow .linkBtn {
+    border-left: 3px solid #111111;
+    border-top: none;
+  }
+
+  .ctaRow .linkBtn:first-child,
+  .iconRow .linkBtn:first-child {
+    border-top: 3px solid #111111;
+  }
+}

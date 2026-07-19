@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import styles from "./HeroGlass.module.css";
+import styles from "./HeroJdm.module.css";
 import CV from "../../assets/AriffM_Resume.pdf";
 import ResumeModal from "../../common/ResumeModal";
 
-function HeroGlass() {
+function HeroJdm() {
   const [currentRole, setCurrentRole] = useState(0);
   const [showResumeModal, setShowResumeModal] = useState(false);
 
@@ -23,15 +23,17 @@ function HeroGlass() {
 
   return (
     <section className={styles.hero}>
+      <div className={styles.rainOverlay} aria-hidden="true" />
       <div className={styles.container}>
-        {/* Status line */}
-        <div className={`${styles.glass} ${styles.statusPanel}`}>
+        <div className={styles.statusLine}>
+          <span className={styles.bracketOpen} aria-hidden="true">［</span>
           <span className={styles.statusDot} />
           <span className={styles.statusText}>Available for opportunities</span>
+          <span className={styles.bracketClose} aria-hidden="true">］</span>
         </div>
 
-        {/* Hi I'm / Name / Role / Description / Actions -- one combined glass card */}
-        <div className={`${styles.glass} ${styles.introPanel}`}>
+        <div className={styles.introPanel}>
+          <span className={styles.kanjiAccent}>夜行</span>
           <span className={styles.greeting}>Hi, I'm</span>
           <h1 className={styles.name}>Ariff Muhammed</h1>
 
@@ -102,17 +104,6 @@ function HeroGlass() {
               </a>
             </div>
           </div>
-
-          {/* Skills -- flat text list, curated for now; will move to an icon-based layout later */}
-          <div className={styles.skillsList}>
-            {["Python", "React", "TypeScript", "PyTorch", "Verilog", "PostgreSQL"].map(
-              (skill) => (
-                <span key={skill} className={styles.skillItem}>
-                  {skill}
-                </span>
-              )
-            )}
-          </div>
         </div>
       </div>
 
@@ -125,4 +116,4 @@ function HeroGlass() {
   );
 }
 
-export default HeroGlass;
+export default HeroJdm;

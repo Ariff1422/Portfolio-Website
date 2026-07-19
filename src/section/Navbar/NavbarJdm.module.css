@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+JP:wght@700;900&family=Space+Mono:wght@400;700&display=swap");
+
+.navbar {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: fit-content;
+  max-width: calc(100vw - 2rem);
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(10, 10, 18, 0.85);
+  border: 1px solid rgba(0, 220, 255, 0.4);
+  box-shadow:
+    0 0 20px rgba(255, 30, 110, 0.25),
+    0 0 40px rgba(0, 220, 255, 0.15),
+    0 8px 24px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  background: linear-gradient(135deg, #ff1e6e, #ff8a3d);
+  color: #0a0a12;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Bebas Neue", sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  border: 1px solid rgba(0, 220, 255, 0.4);
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navLinks {
+  display: flex;
+  gap: 0;
+}
+
+.navLink {
+  width: 90px;
+  padding: 0.5rem 0;
+  font-family: "Space Mono", monospace;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.7rem;
+  text-decoration: none;
+  text-align: center;
+  color: rgba(245, 240, 230, 0.7);
+  border: 1px solid rgba(0, 220, 255, 0.25);
+  border-left: none;
+  background: rgba(245, 240, 230, 0.03);
+  white-space: nowrap;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.navLink:first-child {
+  border-left: 1px solid rgba(0, 220, 255, 0.25);
+}
+
+.navLink:hover {
+  color: #00dcff;
+  background: rgba(0, 220, 255, 0.08);
+}
+
+/*
+  Active nav state -- an illuminated amber/orange gradient, echoing a lit
+  90s dashboard instrument cluster (RX-7 / S2000-style) rather than the
+  section-accent pink/cyan used elsewhere.
+*/
+.navLink.active {
+  color: #1a0d00;
+  background: linear-gradient(180deg, #ffb347, #ff8a1e);
+  border-color: transparent;
+  text-shadow: none;
+  box-shadow: 0 0 12px rgba(255, 179, 71, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/*
+  Social links -- GitHub / LinkedIn / Email, matching the sign-strip
+  border style used elsewhere so they read as part of the same console.
+*/
+.socialLinks {
+  display: flex;
+  gap: 0;
+}
+
+.socialLink {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(0, 220, 255, 0.25);
+  border-left: none;
+  background: rgba(245, 240, 230, 0.03);
+  color: rgba(245, 240, 230, 0.7);
+  font-size: 1rem;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+}
+
+.socialLinks .socialLink:first-child {
+  border-left: 1px solid rgba(0, 220, 255, 0.25);
+}
+
+.socialLink:hover {
+  color: #00dcff;
+  background: rgba(0, 220, 255, 0.08);
+}
+
+/*
+  Multiverse selector -- a 4-quadrant coordinate pad replacing the plain
+  theme dropdown. Each quadrant is styled in its own theme's visual
+  language (J2K neon, Bauhaus primary-color blocks, Mystical Western
+  dusty serif, Ethereal soft glow) so switching feels like crossing into
+  a different dimension rather than picking a <select> option.
+*/
+.multiverseSelector {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  width: 132px;
+  height: 56px;
+  background: #050507;
+  border: 1px solid #1a2238;
+  flex-shrink: 0;
+}
+
+.matrixCrosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #3e4d6d;
+  font-family: "Space Mono", monospace;
+  font-size: 0.7rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.quadrantNode {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  border: 1px solid rgba(26, 34, 56, 0.4);
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-family: inherit;
+}
+
+.quadCode {
+  font-family: "Space Mono", monospace;
+  font-size: 0.52rem;
+  font-weight: 700;
+}
+
+.quadLabel {
+  font-size: 0.4rem;
+  opacity: 0.55;
+  margin-top: 1px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #f5f0e6;
+}
+
+/* J2K quadrant -- neon electric glow */
+.qJ2K .quadCode {
+  color: #00dcff;
+}
+
+.qJ2K.quadrantActive {
+  background: rgba(0, 220, 255, 0.15);
+  border-color: #00dcff;
+}
+
+/* Bauhaus quadrant -- solid primary-color block */
+.qBAU .quadCode {
+  font-family: Arial, sans-serif;
+  font-weight: 900;
+  color: #ff2a00;
+}
+
+.qBAU.quadrantActive {
+  background: #0033aa;
+}
+
+.qBAU.quadrantActive .quadCode,
+.qBAU.quadrantActive .quadLabel {
+  color: #ffffff;
+}
+
+/* Mystical Western quadrant -- dusty leather & old text */
+.qWSTN .quadCode {
+  font-family: Georgia, serif;
+  font-style: italic;
+  color: #c39b6a;
+}
+
+.qWSTN.quadrantActive {
+  background: #3a2214;
+  border: 1px double #c39b6a;
+}
+
+/* Ethereal quadrant -- dreamlike glowing mist */
+.qETHR .quadCode {
+  font-weight: 200;
+  letter-spacing: 0.1em;
+  color: #e0b0ff;
+}
+
+.qETHR.quadrantActive {
+  background: rgba(224, 176, 255, 0.1);
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 0 15px rgba(224, 176, 255, 0.3);
+}
+
+/* Locked quadrants -- dimmed, non-interactive, until those themes exist */
+.quadrantLocked {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.quadrantLocked:hover {
+  background: transparent;
+}
+
+/*
+  Desktop vs. mobile selector placement -- on wide viewports the pad sits
+  inline at the end of the single-row pill. Below 640px it's replaced by a
+  compact triple-line toggle so the pill keeps a single-row height (it
+  floats above the footer); tapping the toggle pops the same pad up
+  above the navbar instead of growing the pill in place.
+*/
+.desktopOnly {
+  display: grid;
+}
+
+.mobileToggle {
+  display: none;
+}
+
+.mobilePopover {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .socialLinks {
+    display: none;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(0, 220, 255, 0.4);
+    background: rgba(245, 240, 230, 0.03);
+    color: #00dcff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: background 0.2s ease;
+  }
+
+  .mobileToggle:hover,
+  .mobileToggle[aria-expanded="true"] {
+    background: rgba(0, 220, 255, 0.12);
+  }
+
+  .mobilePopover {
+    display: grid;
+    position: absolute;
+    bottom: calc(100% + 0.6rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: 96px;
+  }
+
+  .mobilePopover .quadCode {
+    font-size: 0.68rem;
+  }
+
+  .mobilePopover .quadLabel {
+    display: block;
+    font-size: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    bottom: 1rem;
+  }
+
+  .navContent {
+    padding: 0.4rem;
+    gap: 0.35rem;
+  }
+}

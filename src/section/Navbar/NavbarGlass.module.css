@@ -153,6 +153,23 @@
   gap: 0.675rem;
 }
 
+/* Theme switcher -- plain control for now; will get a themed treatment once Navbar itself adapts per theme */
+.themeSelect {
+  background: var(--glass-surface, rgba(255, 255, 255, 0.06));
+  color: var(--text, #fff);
+  border: 1px solid var(--glass-border, rgba(255, 255, 255, 0.18));
+  border-radius: 8px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.8rem;
+  font-family: inherit;
+  cursor: pointer;
+}
+
+.themeSelect option {
+  background: #1a1a2e;
+  color: #fff;
+}
+
 /* Hamburger bubble */
 .hamburger {
   display: none;

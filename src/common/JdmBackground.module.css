@@ -1,0 +1,152 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@900&display=swap");
+
+.wrap {
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/*
+  JDM speed-stripe corners -- diagonal hazard-stripe accents in the two
+  opposite corners of the viewport, echoing the diagonal speed-lines and
+  hazard chevrons used throughout Initial D / Wangan Midnight-era racing
+  graphics.
+*/
+.speedStripeTopLeft,
+.speedStripeBottomRight {
+  position: fixed;
+  width: 220px;
+  height: 220px;
+  opacity: 0.5;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 138, 61, 0.12) 0px,
+    rgba(255, 138, 61, 0.12) 8px,
+    transparent 8px,
+    transparent 18px
+  );
+}
+
+.speedStripeTopLeft {
+  top: 0;
+  left: 0;
+  -webkit-mask-image: linear-gradient(135deg, #000 0%, transparent 60%);
+  mask-image: linear-gradient(135deg, #000 0%, transparent 60%);
+}
+
+.speedStripeBottomRight {
+  bottom: 0;
+  right: 0;
+  -webkit-mask-image: linear-gradient(-45deg, #000 0%, transparent 60%);
+  mask-image: linear-gradient(-45deg, #000 0%, transparent 60%);
+}
+
+/*
+  Vertical hazard bars -- tall diagonal-stripe columns anchoring the far
+  left/right margins, echoing warning-tape / aftermarket parts hazard
+  labeling. Kept at very low opacity so it reads as texture, not a banner.
+*/
+.hazardBarLeft,
+.hazardBarRight {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 28px;
+  opacity: 0.07;
+  background: repeating-linear-gradient(
+    45deg,
+    #ff8a3d 0px,
+    #ff8a3d 10px,
+    #0a0a12 10px,
+    #0a0a12 20px
+  );
+}
+
+.hazardBarLeft {
+  left: 0;
+}
+
+.hazardBarRight {
+  right: 0;
+}
+
+@media (max-width: 1300px) {
+  .hazardBarLeft,
+  .hazardBarRight {
+    display: none;
+  }
+}
+
+/*
+  Crosshair corner brackets -- tiny UI anchors in the absolute corners of
+  the viewport, echoing ECU diagnostic screens / anime hacking-terminal HUDs.
+*/
+.cornerBracketTL,
+.cornerBracketTR,
+.cornerBracketBL,
+.cornerBracketBR {
+  position: fixed;
+  font-family: "Space Mono", monospace;
+  font-size: 1.4rem;
+  color: rgba(0, 220, 255, 0.3);
+  line-height: 1;
+}
+
+.cornerBracketTL {
+  top: 1rem;
+  left: 1rem;
+}
+
+.cornerBracketTR {
+  top: 1rem;
+  right: 1rem;
+}
+
+.cornerBracketBL {
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.cornerBracketBR {
+  bottom: 1rem;
+  right: 1rem;
+}
+
+/*
+  Watermark -- giant, heavily desaturated katakana text tucked behind the
+  content, echoing an aftermarket car vinyl decal or a background loading
+  watermark ("SYSTEM" in katakana).
+*/
+.watermark {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-8deg);
+  font-family: "Noto Sans JP", sans-serif;
+  font-weight: 900;
+  font-size: 22vw;
+  color: rgba(0, 220, 255, 0.02);
+  white-space: nowrap;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .speedStripeTopLeft,
+  .speedStripeBottomRight {
+    width: 140px;
+    height: 140px;
+  }
+
+  .cornerBracketTL,
+  .cornerBracketTR,
+  .cornerBracketBL,
+  .cornerBracketBR {
+    display: none;
+  }
+
+  .watermark {
+    font-size: 32vw;
+  }
+}

@@ -23,6 +23,20 @@
   --glass-border: rgba(51, 65, 85, 0.5);
 }
 
+[data-theme="bauhaus"] {
+  --background-color: #f2ede4;
+  --surface-color: #ffffff;
+  --text-primary: #111111;
+  --text-secondary: #333333;
+  --text-tertiary: #666666;
+  --accent-primary: #e63946;
+  --accent-hover: #1d3557;
+  --accent-light: #f4a400;
+  --border-color: #111111;
+  --glass-bg: #ffffff;
+  --glass-border: #111111;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -41,16 +55,13 @@ body {
 }
 
 body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;
   color: var(--text-primary);
   line-height: 1.6;
   transition: background-color 0.3s ease, color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'%3E%3Cpath fill='%2322d3ee' d='M5.5 3.21V20.8l5.5-5.5h7.5L5.5 3.21z'/%3E%3C/svg%3E")
-      4 2,
-    auto;
 }
 
 h1,
@@ -59,7 +70,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-family: var(--font-display), sans-serif;
   font-weight: 700;
   line-height: 1.2;
   color: var(--text-primary);
