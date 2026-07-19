@@ -113,16 +113,6 @@ function HeroBauhaus() {
               </a>
             </div>
           </div>
-
-          <div className={styles.skillsList}>
-            {["Python", "React", "TypeScript", "PyTorch", "Verilog", "PostgreSQL"].map(
-              (skill) => (
-                <span key={skill} className={styles.skillItem}>
-                  {skill}
-                </span>
-              )
-            )}
-          </div>
         </div>
       </div>
 
