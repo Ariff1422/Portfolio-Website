@@ -35,7 +35,6 @@
 }
 
 [data-theme="japandi"],
-[data-theme="ethereal"],
 [data-theme="neoclassical"],
 [data-theme="mystical-western"],
 [data-theme="brutalism"],
@@ -121,6 +120,37 @@
   --glass-glow: 0 0 40px rgba(255, 30, 110, 0.25);
 }
 
+/*
+  Ethereal -- real theme. Pale, weightless mist: soft iridescent
+  gradient ground, dusty-charcoal low-contrast text, frosted-glass
+  panels, one lavender accent used sparingly. Own components
+  (HeroEthereal, etc.) render their own structure; these tokens cover
+  shared/body-level styling.
+*/
+[data-theme="ethereal"] {
+  --bg-solid: #f4effa;
+  --bg-glow-1: radial-gradient(ellipse 70% 55% at 18% 20%, #f4effa, transparent 60%);
+  --bg-glow-2: radial-gradient(ellipse 65% 55% at 85% 15%, #edf3f7, transparent 62%);
+  --bg-glow-3: radial-gradient(ellipse 70% 60% at 60% 90%, #faf7f2, transparent 60%);
+  --bg-glow-4: none;
+  --bg-base: none;
+  --surface: rgba(255, 255, 255, 0.32);
+  --accent: #bfa3db;
+  --accent2: #6b4a94;
+  --text: #3b3545;
+  --font-display: Georgia, "Iowan Old Style", "Palatino Linotype", "URW Palladio L", serif;
+  --font-body: -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  --border-radius: 20px;
+  --shadow: 0 15px 35px rgba(150, 130, 190, 0.08);
+  --texture: none;
+  --motion: drift;
+
+  --glass-surface: rgba(255, 255, 255, 0.32);
+  --glass-border: rgba(255, 255, 255, 0.6);
+  --glass-blur: blur(20px) saturate(110%);
+  --glass-glow: 0 15px 35px rgba(150, 130, 190, 0.08);
+}
+
 body {
   background-color: var(--bg-solid);
   background-image: var(--bg-glow-1), var(--bg-glow-2), var(--bg-glow-3), var(--bg-glow-4), var(--bg-base);
@@ -157,8 +187,30 @@ body::before {
 
 /* Bauhaus is flat with no texture per the brief -- suppress the grain overlay */
 [data-theme="bauhaus"] body::before,
-[data-theme="jdm"] body::before {
+[data-theme="jdm"] body::before,
+[data-theme="ethereal"] body::before {
   display: none;
+}
+
+/*
+  Ethereal mist drift -- the body's layered radial-gradient ground
+  slowly shifts, so the mist reads as alive rather than a static
+  pastel gradient sitting behind the content.
+*/
+[data-theme="ethereal"] body {
+  background-size: 140% 140%, 140% 140%, 140% 140%, auto;
+  animation: etherealDrift 60s ease-in-out infinite;
+}
+
+@keyframes etherealDrift {
+  0%, 100% { background-position: 0% 0%, 100% 0%, 50% 100%, 0 0; }
+  50% { background-position: -4% 4%, 96% -2%, 46% 92%, 0 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-theme="ethereal"] body {
+    animation: none;
+  }
 }
 
 /*

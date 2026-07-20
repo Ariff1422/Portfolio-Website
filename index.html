@@ -16,10 +16,15 @@
   </head>
   <body>
     <script>
-      // Prevent flash of unstyled content by applying theme immediately
+      // Prevent flash of unstyled/wrong-theme content by applying the
+      // saved theme to <html> immediately, before React mounts. Must
+      // match ThemeContext.jsx's storage key, THEME_IDS, and DEFAULT_THEME.
       (function() {
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.body.setAttribute('data-theme', savedTheme);
+        var THEME_IDS = ['bauhaus', 'jdm', 'ethereal'];
+        var DEFAULT_THEME = 'bauhaus';
+        var stored = localStorage.getItem('portfolio-theme');
+        var theme = THEME_IDS.indexOf(stored) !== -1 ? stored : DEFAULT_THEME;
+        document.documentElement.setAttribute('data-theme', theme);
       })();
     </script>
     <div id="root"></div>

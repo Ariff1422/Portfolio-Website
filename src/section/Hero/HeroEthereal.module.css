@@ -1,0 +1,176 @@
+.hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4rem 2rem 6rem;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: lowercase;
+  color: #756e82;
+  margin-bottom: 2.4rem;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 14px 4px rgba(191, 163, 219, 0.45);
+}
+
+.greeting {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.4rem;
+  color: #756e82;
+  margin: 0 0 0.3rem;
+}
+
+/*
+  Soft blurred halo behind the name -- the sole background accent near
+  the name, a single organic bloom of light rather than a structural
+  line or shape.
+*/
+.nameGlow {
+  position: absolute;
+  width: 32rem;
+  height: 32rem;
+  left: -6rem;
+  top: -10rem;
+  background: radial-gradient(circle, rgba(224, 176, 255, 0.28) 0%, transparent 70%);
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+.name {
+  position: relative;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(3rem, 8vw, 5.4rem);
+  letter-spacing: 0.005em;
+  line-height: 1.05;
+  margin: 0 0 1.4rem;
+  color: var(--text);
+}
+
+.roleContainer {
+  height: 2rem;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1.6rem;
+}
+
+.roleWrapper {
+  position: relative;
+  height: 100%;
+}
+
+.role {
+  font-family: var(--font-body);
+  font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: lowercase;
+  color: var(--accent2);
+  margin: 0;
+  position: absolute;
+  width: 100%;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.roleActive {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.description {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  line-height: 1.85;
+  color: #756e82;
+  max-width: 46ch;
+  margin: 0 0 2.6rem;
+  font-weight: 400;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: lowercase;
+  text-decoration: none;
+  color: var(--text);
+  padding: 0.95rem 1.9rem;
+  border-radius: 999px;
+  border: 1px solid rgba(59, 53, 69, 0.1);
+  background: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease, background 0.35s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(191, 163, 219, 0.22);
+  border-color: rgba(191, 163, 219, 0.45);
+}
+
+.btn.primary {
+  background: rgba(191, 163, 219, 0.15);
+  border: 1px solid rgba(191, 163, 219, 0.4);
+  color: var(--accent2);
+  box-shadow: 0 8px 24px rgba(191, 163, 219, 0.15);
+}
+
+.btn.iconOnly {
+  padding: 0.95rem 1.1rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 640px) {
+  .hero {
+    padding: 5rem 1rem 3rem;
+  }
+
+  .nameGlow {
+    width: 22rem;
+    height: 22rem;
+    left: -3rem;
+    top: -6rem;
+  }
+}

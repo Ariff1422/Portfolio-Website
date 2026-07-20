@@ -97,6 +97,27 @@
   --glass-bg-rgb: 31, 35, 37;
 }
 
+[data-theme="ethereal"] {
+  --progress-bg-rgb: 255, 255, 255;
+  --progress-accent: #6b4a94;
+  --progress-accent-rgb: 191, 163, 219;
+  --glass-bg-rgb: 255, 255, 255;
+}
+
+[data-theme="bauhaus"] {
+  --progress-bg-rgb: 242, 237, 228;
+  --progress-accent: #1d3557;
+  --progress-accent-rgb: 29, 53, 87;
+  --glass-bg-rgb: 255, 255, 255;
+}
+
+[data-theme="jdm"] {
+  --progress-bg-rgb: 10, 10, 18;
+  --progress-accent: #00dcff;
+  --progress-accent-rgb: 0, 220, 255;
+  --glass-bg-rgb: 10, 10, 18;
+}
+
 @media (max-width: 768px) {
   .scrollToTop {
     bottom: 5rem;

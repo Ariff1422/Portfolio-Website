@@ -170,6 +170,29 @@
 [data-theme="glass"] {
   --modal-bg-rgb: 31, 35, 37;
   --modal-accent-rgb: 34, 211, 238;
+  --text-color: #ffffff;
+  --btn-hover-color: #22d3ee;
+}
+
+[data-theme="bauhaus"] {
+  --modal-bg-rgb: 242, 237, 228;
+  --modal-accent-rgb: 230, 57, 70;
+  --text-color: #111111;
+  --btn-hover-color: #e63946;
+}
+
+[data-theme="jdm"] {
+  --modal-bg-rgb: 10, 10, 18;
+  --modal-accent-rgb: 0, 220, 255;
+  --text-color: #f5f0e6;
+  --btn-hover-color: #00dcff;
+}
+
+[data-theme="ethereal"] {
+  --modal-bg-rgb: 244, 239, 250;
+  --modal-accent-rgb: 191, 163, 219;
+  --text-color: #3b3545;
+  --btn-hover-color: #bfa3db;
 }
 
 @media (max-width: 768px) {

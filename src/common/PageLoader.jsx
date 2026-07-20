@@ -6,50 +6,47 @@ const PageLoader = ({ children }) => {
   const [isFading, setIsFading] = useState(false);
 
   useEffect(() => {
-    // Lock body scroll during loading to prevent scrollbar shift
-    document.body.style.overflow = "hidden";
-
-    // Simulate minimum loading time for effect
+    // The loader is a full-screen overlay, so it doesn't need to also
+    // lock body scroll -- doing so previously swallowed any click/anchor
+    // jump (e.g. "View Projects") that happened during the loading
+    // window, since the browser couldn't actually scroll yet and
+    // nothing replayed that scroll once the lock lifted.
     const timer = setTimeout(() => {
       setIsFading(true);
       setTimeout(() => {
         setIsLoading(false);
-        // Restore scroll after loader is gone
-        document.body.style.overflow = "";
       }, 500);
     }, 1500);
 
-    return () => {
-      clearTimeout(timer);
-      document.body.style.overflow = "";
-    };
+    return () => clearTimeout(timer);
   }, []);
 
-  if (isLoading) {
-    return (
-      <div className={`${styles.loader} ${isFading ? styles.fadeOut : ""}`}>
-        <div className={styles.loaderContent}>
-          <div className={styles.logoContainer}>
-            <div className={styles.ring}></div>
-            <div className={styles.ring}></div>
-            <div className={styles.ring}></div>
-            <span className={styles.initials}>AM</span>
-          </div>
-          <div className={styles.loadingText}>
-            <span>L</span>
-            <span>O</span>
-            <span>A</span>
-            <span>D</span>
-            <span>I</span>
-            <span>N</span>
-            <span>G</span>
+  return (
+    <>
+      <div className={styles.pageContent}>{children}</div>
+      {isLoading && (
+        <div className={`${styles.loader} ${isFading ? styles.fadeOut : ""}`}>
+          <div className={styles.loaderContent}>
+            <div className={styles.logoContainer}>
+              <div className={styles.ring}></div>
+              <div className={styles.ring}></div>
+              <div className={styles.ring}></div>
+              <span className={styles.initials}>AM</span>
+            </div>
+            <div className={styles.loadingText}>
+              <span>L</span>
+              <span>O</span>
+              <span>A</span>
+              <span>D</span>
+              <span>I</span>
+              <span>N</span>
+              <span>G</span>
+            </div>
           </div>
         </div>
-      </div>
-    );
-  }
-
-  return <div className={styles.pageContent}>{children}</div>;
+      )}
+    </>
+  );
 };
 
 export default PageLoader;
