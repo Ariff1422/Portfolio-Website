@@ -1,0 +1,258 @@
+.navbar {
+  position: fixed;
+  left: 50%;
+  bottom: 1.5rem;
+  transform: translateX(-50%);
+  z-index: 100;
+  width: fit-content;
+  max-width: calc(100vw - 2rem);
+}
+
+.navContent {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px) saturate(120%);
+  -webkit-backdrop-filter: blur(20px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 999px;
+  box-shadow:
+    0 15px 35px rgba(150, 130, 190, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  padding: 0.5rem;
+  flex-wrap: nowrap;
+}
+
+.logo {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.05rem;
+  color: var(--accent2);
+  background: rgba(191, 163, 219, 0.15);
+  border-radius: 50%;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.navLinks {
+  display: flex;
+  gap: 0.15rem;
+}
+
+.navLink {
+  padding: 0.6rem 1.1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.05em;
+  font-size: 0.72rem;
+  text-decoration: none;
+  color: #756e82;
+  border-radius: 999px;
+  white-space: nowrap;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.navLink:hover {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.navLink.active {
+  color: var(--accent2);
+  background: rgba(191, 163, 219, 0.18);
+}
+
+.socialLinks {
+  display: flex;
+  gap: 0.15rem;
+}
+
+.socialLink {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: #756e82;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.3s ease, background 0.3s ease;
+}
+
+.socialLink:hover {
+  color: var(--accent2);
+  background: rgba(191, 163, 219, 0.18);
+}
+
+/*
+  Multiverse selector -- Ethereal reading of the same 4-quadrant theme
+  pad used elsewhere, dissolved into the same frosted-glass language as
+  the rest of the theme rather than a heavy framed poster.
+*/
+.multiverseSelector {
+  position: relative;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  width: 148px;
+  height: auto;
+  background: rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.matrixCrosshair {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgba(59, 53, 69, 0.3);
+  font-family: var(--font-body);
+  font-weight: 400;
+  font-size: 0.8rem;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.quadrantNode {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1px;
+  padding: 6px 4px;
+  border: none;
+  background: transparent;
+  color: #756e82;
+  cursor: pointer;
+  font-family: var(--font-body);
+  line-height: 1.1;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.quadCode {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.58rem;
+  text-transform: lowercase;
+}
+
+.quadLabel {
+  display: block;
+  font-size: 0.4rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  opacity: 0.7;
+  color: inherit;
+  text-transform: lowercase;
+}
+
+.quadrantActive {
+  background: rgba(191, 163, 219, 0.28);
+  color: var(--accent2);
+}
+
+/* Locked quadrants -- dimmed, non-interactive, until those themes exist */
+.quadrantLocked {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/*
+  Desktop vs. mobile selector placement -- on wide viewports the pad sits
+  inline at the end of the single-row pill. Below 640px it's replaced by a
+  compact triple-line toggle so the pill keeps a single-row height; tapping
+  the toggle pops the same pad up above the navbar instead of growing the
+  pill in place.
+*/
+.desktopOnly {
+  display: grid;
+}
+
+.mobileToggle {
+  display: none;
+}
+
+.mobilePopover {
+  display: none;
+}
+
+@media (max-width: 640px) {
+  .socialLinks {
+    display: none;
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.3);
+    color: var(--accent2);
+    font-size: 1.1rem;
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+
+  .mobileToggle:hover,
+  .mobileToggle[aria-expanded="true"] {
+    background: rgba(191, 163, 219, 0.25);
+  }
+
+  .mobilePopover {
+    display: grid;
+    position: absolute;
+    bottom: calc(100% + 0.6rem);
+    left: 50%;
+    transform: translateX(-50%);
+    width: 220px;
+    height: auto;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(20px) saturate(120%);
+    -webkit-backdrop-filter: blur(20px) saturate(120%);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(150, 130, 190, 0.12);
+  }
+
+  .mobilePopover .quadCode {
+    font-size: 0.7rem;
+  }
+
+  .mobilePopover .quadLabel {
+    display: block;
+    font-size: 0.55rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    bottom: 1rem;
+  }
+
+  .navContent {
+    padding: 0.4rem;
+    gap: 0.35rem;
+  }
+}

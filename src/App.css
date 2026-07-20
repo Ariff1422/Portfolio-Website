@@ -21,6 +21,28 @@
   --footer-text-color: #111111;
 }
 
+[data-theme="ethereal"] {
+  --btn-color: rgba(255, 255, 255, 0.32);
+  --btn-hover-color: #bfa3db;
+  --btn-text-color: #3b3545;
+  --btn-text-color-hover: #6b4a94;
+  --project-card-color: rgba(255, 255, 255, 0.32);
+  --text-color: #3b3545;
+  --form-text-color: #3b3545;
+  --footer-text-color: #756e82;
+}
+
+[data-theme="jdm"] {
+  --btn-color: #0a0a12;
+  --btn-hover-color: #00dcff;
+  --btn-text-color: #f5f0e6;
+  --btn-text-color-hover: #0a0a12;
+  --project-card-color: #0a0a12;
+  --text-color: #f5f0e6;
+  --form-text-color: #f5f0e6;
+  --footer-text-color: rgba(245, 240, 230, 0.7);
+}
+
 body {
   display: flex;
   justify-content: center;

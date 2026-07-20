@@ -34,7 +34,7 @@
   border-bottom-color: #ffffff;
   transform: translate(-25%, -10%) rotate(-45deg) scale(1.1);
   filter: drop-shadow(0 0 2px var(--accent, #22d3ee))
-    drop-shadow(0 0 4px rgba(34, 211, 238, 0.6));
+    drop-shadow(0 0 4px var(--accent, #22d3ee));
 }
 
 .cursorFollower.pointer {

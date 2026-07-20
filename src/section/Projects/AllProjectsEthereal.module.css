@@ -1,0 +1,306 @@
+.page {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6rem 2rem 6rem;
+}
+
+.pageInner {
+  position: relative;
+  z-index: 1;
+}
+
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 999px;
+  padding: 0.6rem 1.2rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: lowercase;
+  font-size: 0.78rem;
+  text-decoration: none;
+  color: var(--text);
+  margin-bottom: 3rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.backButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(191, 163, 219, 0.18);
+}
+
+.heroContent {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.heroLabel {
+  display: block;
+  font-family: var(--font-body);
+  font-weight: 700;
+  text-transform: lowercase;
+  letter-spacing: 0.24em;
+  color: var(--accent2);
+  font-size: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.heroTitle {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 3.4rem);
+  margin: 0 0 0.75rem;
+  color: var(--text);
+}
+
+.heroSubtitle {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  color: #756e82;
+  margin: 0;
+}
+
+.searchWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(20px) saturate(110%);
+  -webkit-backdrop-filter: blur(20px) saturate(110%);
+  border-radius: 999px;
+  padding: 0.9rem 1.5rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  box-shadow:
+    0 15px 35px rgba(150, 130, 190, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.searchInput {
+  flex: 1;
+  border: none;
+  outline: none;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: transparent;
+}
+
+.searchInput::placeholder {
+  color: #a39bb0;
+}
+
+.searchIcon {
+  flex-shrink: 0;
+}
+
+.controlsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  background: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(20px) saturate(110%);
+  -webkit-backdrop-filter: blur(20px) saturate(110%);
+  border-radius: 20px;
+  padding: 1rem 1.5rem;
+  margin-bottom: 3rem;
+  box-shadow:
+    0 15px 35px rgba(150, 130, 190, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.filterSelect,
+.sortSelect {
+  border: 1px solid rgba(59, 53, 69, 0.1);
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 999px;
+  padding: 0.6rem 1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: lowercase;
+  font-size: 0.76rem;
+  color: var(--text);
+  cursor: pointer;
+}
+
+/*
+  Equal-height cards -- align-items: stretch so cards within the same
+  row match the tallest one, keeping tech tags and action buttons
+  aligned across cards with different description lengths.
+*/
+.projectsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  align-items: stretch;
+  gap: 1.5rem;
+}
+
+.projectCard {
+  position: relative;
+  background: rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(20px) saturate(110%);
+  -webkit-backdrop-filter: blur(20px) saturate(110%);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 20px;
+  box-shadow:
+    0 15px 35px rgba(150, 130, 190, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
+  padding: 0 0 1.9rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 22px 44px rgba(150, 130, 190, 0.14);
+}
+
+.imageContainer {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+/*
+  Faded treatment for projects still being built -- no image/no
+  Code-Demo buttons since there's nothing finished to link to yet.
+*/
+.inProgressCard {
+  opacity: 0.6;
+  padding-top: 1.9rem;
+}
+
+.inProgressBadge {
+  display: inline-block;
+  color: rgba(107, 74, 148, 0.6);
+  background: transparent;
+  border: 1px dashed rgba(191, 163, 219, 0.5);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.1em;
+  padding: 0.25rem 0.7rem;
+  margin: 0 1.9rem 1rem;
+  width: fit-content;
+}
+
+.projectImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.projCategory {
+  position: relative;
+  z-index: 1;
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: lowercase;
+  color: rgba(107, 74, 148, 0.55);
+  margin: 0 1.9rem 0.6rem;
+  width: fit-content;
+}
+
+.projTitle {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.3rem;
+  margin: 0 1.9rem 0.5rem;
+  color: var(--text);
+}
+
+.projDesc {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  color: #756e82;
+  margin: 0 1.9rem 1rem;
+  line-height: 1.65;
+  flex-grow: 1;
+}
+
+.techTags {
+  position: relative;
+  z-index: 1;
+  font-family: var(--font-body);
+  font-size: 0.78rem;
+  color: #756e82;
+  margin: 0 1.9rem 1.25rem;
+}
+
+.techTags i {
+  font-style: normal;
+  color: rgba(59, 53, 69, 0.25);
+}
+
+.cardActions {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  gap: 0.6rem;
+  border-top: 1px solid rgba(59, 53, 69, 0.1);
+  padding-top: 1rem;
+  margin: 0 1.9rem;
+}
+
+.actionBtn {
+  flex: 1;
+  text-align: center;
+  padding: 0.6rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: lowercase;
+  font-size: 0.76rem;
+  text-decoration: none;
+  border: 1px solid rgba(59, 53, 69, 0.1);
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.actionBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(191, 163, 219, 0.18);
+}
+
+.actionBtn.primary {
+  background: rgba(191, 163, 219, 0.18);
+  border-color: rgba(191, 163, 219, 0.4);
+  color: var(--accent2);
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 6rem 1rem 3rem;
+  }
+
+  .controlsRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

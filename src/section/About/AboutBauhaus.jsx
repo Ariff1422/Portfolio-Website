@@ -45,6 +45,8 @@ function AboutBauhaus() {
             you're working on something interesting, I'd love to connect.
           </p>
         </div>
+
+        <div className={styles.voidRule} aria-hidden="true" />
       </div>
     </section>
   );

@@ -133,7 +133,7 @@
 .expCard {
   position: relative;
   background: #ffffff;
-  border: 3px solid #111111;
+  border: 5px solid #111111;
   padding: 2rem;
   display: flex;
   gap: 2rem;

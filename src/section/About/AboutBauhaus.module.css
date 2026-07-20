@@ -44,13 +44,20 @@
   color: #111111;
 }
 
+/*
+  Broken symmetry -- the card is pushed left and narrowed so the
+  remaining space on the right reads as an intentional void, rather
+  than the card floating centered in a passive, safe layout canvas.
+*/
 .aboutCard {
   background: #ffffff;
-  border: 3px solid #111111;
-  padding: 2.5rem;
+  border: 5px solid #111111;
+  padding: 1.5rem 2.5rem;
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
+  width: 65%;
+  margin-left: 5%;
 }
 
 .aboutText {
@@ -61,9 +68,43 @@
   max-width: 70ch;
 }
 
+/*
+  Highlight -- a solid stamped color block behind key phrases instead of
+  plain colored inline text, echoing an industrial workshop manual call-out
+  rather than a decorative link color.
+*/
 .highlight {
   font-weight: 800;
-  color: #e63946;
+  color: #111111;
+  background: #f4a400;
+  padding: 0.05em 0.3em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/*
+  Void rule -- a single solid vertical line partitioning the empty
+  right-hand space left by the asymmetric card, so it reads as an
+  intentional structural void rather than an unfinished layout.
+*/
+.voidRule {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: calc(5% + 65% + 6%);
+  width: 5px;
+  background: #111111;
+}
+
+@media (max-width: 900px) {
+  .aboutCard {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .voidRule {
+    display: none;
+  }
 }
 
 @media (max-width: 640px) {

@@ -3,7 +3,8 @@
     "allow": [
       "Bash(sort:*)",
       "Bash(npm run dev:*)",
-      "Bash(git -C \"C:\\Users\\Ariff1422\\Documents\\Portfolio-Website\" status)"
+      "Bash(git -C \"C:\\Users\\Ariff1422\\Documents\\Portfolio-Website\" status)",
+      "Bash(npm run *do)"
     ],
     "deny": [],
     "ask": []

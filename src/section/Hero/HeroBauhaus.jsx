@@ -44,7 +44,10 @@ function HeroBauhaus() {
             <span />
           </div>
           <span className={styles.greeting}>Hi, I'm</span>
-          <h1 className={styles.name}>Ariff Muhammed</h1>
+          <div className={styles.nameWrap}>
+            <h1 className={styles.name}>Ariff Muhammed</h1>
+            <div className={styles.nameShapeCircle} aria-hidden="true" />
+          </div>
 
           <div className={styles.roleContainer}>
             <div className={styles.roleWrapper}>
